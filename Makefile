@@ -54,6 +54,14 @@ perf_nosse:
 	make release_nosse
 	(cd ./perftest; ../build_release_nosse/perftest/perf_test)
 
+perftxt:
+	echo "WITH SSE:" > ./perftest/perf.txt
+	make perf >> ./perftest/perf.txt 2>&1
+	echo "WITHOUT SSE:" >> ./perftest/perf.txt
+	make perf_nosse >> ./perftest/perf.txt 2>&1
+	git add ./perftest/perf.txt
+	echo "You can now commit perf.txt"
+
 clean:
 	rm -rf build_debug
 	rm -rf build_release
