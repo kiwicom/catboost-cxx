@@ -1,0 +1,28 @@
+# This thing was created using original template from https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/C++.gitlab-ci.yml
+
+image: gcc
+
+build:
+  stage: build
+  before_script:
+    - apt update && apt -y install make cmake
+  script:
+    - make unittest
+    - make unittest_nosse
+  artifacts:
+    paths:
+      - ./build_unittest/unittest/unittest
+      - ./build_unittest_nosse/unittest/unittest
+
+# run tests using the binary built before
+test:
+  stage: test
+  script:
+    - ls -lR
+    - ./build_unittest/unittest/unittest -d ./unittest
+
+test_nosse:
+  stage: test
+  script:
+    - ./build_unittest_nosse/unittest/unittest -d ./unittest
+

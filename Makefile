@@ -14,11 +14,29 @@ devel_nosse: build_debug_nosse
 release_nosse: build_release_nosse
 	(cd build_release_nosse; make $(MKARGS))
 
+unittest: build_unittest
+	(cd build_unittest; make $(MKARGS))
+
+unittest_nosse: build_unittest_nosse
+	(cd build_unittest_nosse; make $(MKARGS))
+
 build_debug: CMakeLists.txt
 	rm -rf build_debug
 	mkdir build_debug
 	(cd build_debug; cmake -DCMAKE_BUILD_TYPE=Debug -DENABLE_PERF=ON ../)
 	[ -f compile_commands.json ] || ln -s build_debug/compile_commands.json .
+
+build_unittest: CMakeLists.txt
+	rm -rf build_unittest
+	mkdir build_unittest
+	(cd build_unittest; cmake -DCMAKE_BUILD_TYPE=Debug -DENABLE_PERF=OFF ../)
+	[ -f compile_commands.json ] || ln -s build_unittest/compile_commands.json .
+
+build_unittest_nosse: CMakeLists.txt
+	rm -rf build_unittest_nosse
+	mkdir build_unittest_nosse
+	(cd build_unittest_nosse; cmake -DDISABLE_SSE=ON -DCMAKE_BUILD_TYPE=Debug -DENABLE_PERF=OFF ../)
+	[ -f compile_commands.json ] || ln -s build_unittest_nosse/compile_commands.json .
 
 build_debug_nosse: CMakeLists.txt
 	rm -rf build_debug_nosse
@@ -55,10 +73,12 @@ perf_nosse:
 	(cd ./perftest; ../build_release_nosse/perftest/perf_test)
 
 perftxt:
+	make release
+	make release_nosse
 	echo "WITH SSE:" > ./perftest/perf.txt
-	make perf >> ./perftest/perf.txt 2>&1
+	(cd ./perftest; ../build_release/perftest/perf_test) >> ./perftest/perf.txt 2>&1
 	echo "WITHOUT SSE:" >> ./perftest/perf.txt
-	make perf_nosse >> ./perftest/perf.txt 2>&1
+	(cd ./perftest; ../build_release_nosse/perftest/perf_test) >> ./perftest/perf.txt 2>&1
 	git add ./perftest/perf.txt
 	echo "You can now commit perf.txt"
 

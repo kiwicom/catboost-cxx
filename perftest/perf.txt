@@ -1,634 +1,518 @@
 WITH SSE:
-make[1]: Entering directory '/home/rymis/src/catboost-cxx'
-make release
-make[2]: Entering directory '/home/rymis/src/catboost-cxx'
-(cd build_release; make -j 2)
-make[3]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-/usr/bin/cmake -S/home/rymis/src/catboost-cxx -B/home/rymis/src/catboost-cxx/build_release --check-build-system CMakeFiles/Makefile.cmake 0
-/usr/bin/cmake -E cmake_progress_start /home/rymis/src/catboost-cxx/build_release/CMakeFiles /home/rymis/src/catboost-cxx/build_release/CMakeFiles/progress.marks
-make -f CMakeFiles/Makefile2 all
-make[4]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-make -f src/CMakeFiles/catboost.dir/build.make src/CMakeFiles/catboost.dir/depend
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-cd /home/rymis/src/catboost-cxx/build_release && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/rymis/src/catboost-cxx /home/rymis/src/catboost-cxx/src /home/rymis/src/catboost-cxx/build_release /home/rymis/src/catboost-cxx/build_release/src /home/rymis/src/catboost-cxx/build_release/src/CMakeFiles/catboost.dir/DependInfo.cmake --color=
-Scanning dependencies of target catboost
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-make -f src/CMakeFiles/catboost.dir/build.make src/CMakeFiles/catboost.dir/build
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-[ 14%] Building CXX object src/CMakeFiles/catboost.dir/catboost.cpp.o
-cd /home/rymis/src/catboost-cxx/build_release/src && /usr/bin/c++   -I/home/rymis/src/catboost-cxx/include  -Wall -W -Wextra -O3 -DNDEBUG -fPIC   -msse4.1 -std=gnu++14 -o CMakeFiles/catboost.dir/catboost.cpp.o -c /home/rymis/src/catboost-cxx/src/catboost.cpp
-[ 28%] Linking CXX static library libcatboost.a
-cd /home/rymis/src/catboost-cxx/build_release/src && /usr/bin/cmake -P CMakeFiles/catboost.dir/cmake_clean_target.cmake
-cd /home/rymis/src/catboost-cxx/build_release/src && /usr/bin/cmake -E cmake_link_script CMakeFiles/catboost.dir/link.txt --verbose=1
-/usr/bin/ar qc libcatboost.a  CMakeFiles/catboost.dir/catboost.cpp.o
-/usr/bin/ranlib libcatboost.a
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-[ 28%] Built target catboost
-make -f unittest/CMakeFiles/unittest.dir/build.make unittest/CMakeFiles/unittest.dir/depend
-make -f perftest/CMakeFiles/perf_test.dir/build.make perftest/CMakeFiles/perf_test.dir/depend
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-cd /home/rymis/src/catboost-cxx/build_release && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/rymis/src/catboost-cxx /home/rymis/src/catboost-cxx/unittest /home/rymis/src/catboost-cxx/build_release /home/rymis/src/catboost-cxx/build_release/unittest /home/rymis/src/catboost-cxx/build_release/unittest/CMakeFiles/unittest.dir/DependInfo.cmake --color=
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-cd /home/rymis/src/catboost-cxx/build_release && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/rymis/src/catboost-cxx /home/rymis/src/catboost-cxx/perftest /home/rymis/src/catboost-cxx/build_release /home/rymis/src/catboost-cxx/build_release/perftest /home/rymis/src/catboost-cxx/build_release/perftest/CMakeFiles/perf_test.dir/DependInfo.cmake --color=
-Scanning dependencies of target perf_test
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-Scanning dependencies of target unittest
-make -f perftest/CMakeFiles/perf_test.dir/build.make perftest/CMakeFiles/perf_test.dir/build
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-make -f unittest/CMakeFiles/unittest.dir/build.make unittest/CMakeFiles/unittest.dir/build
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release'
-[ 42%] Building CXX object perftest/CMakeFiles/perf_test.dir/main.cpp.o
-[ 57%] Building CXX object unittest/CMakeFiles/unittest.dir/catboost_test.cpp.o
-cd /home/rymis/src/catboost-cxx/build_release/perftest && /usr/bin/c++   -I/home/rymis/src/catboost-cxx/include  -Wall -W -Wextra -O3 -DNDEBUG -fPIE   -msse4.1 -std=gnu++14 -o CMakeFiles/perf_test.dir/main.cpp.o -c /home/rymis/src/catboost-cxx/perftest/main.cpp
-cd /home/rymis/src/catboost-cxx/build_release/unittest && /usr/bin/c++   -I/home/rymis/src/catboost-cxx/include  -Wall -W -Wextra -O3 -DNDEBUG -fPIE   -msse4.1 -std=gnu++14 -o CMakeFiles/unittest.dir/catboost_test.cpp.o -c /home/rymis/src/catboost-cxx/unittest/catboost_test.cpp
-/home/rymis/src/catboost-cxx/perftest/main.cpp: In function ‘int main(int, const char**)’:
-/home/rymis/src/catboost-cxx/perftest/main.cpp:410:14: warning: ignoring return value of ‘int chdir(const char*)’, declared with attribute warn_unused_result [-Wunused-result]
-  410 |         chdir(root_path.c_str());
-      |         ~~~~~^~~~~~~~~~~~~~~~~~~
-[ 71%] Linking CXX executable unittest
-cd /home/rymis/src/catboost-cxx/build_release/unittest && /usr/bin/cmake -E cmake_link_script CMakeFiles/unittest.dir/link.txt --verbose=1
-/usr/bin/c++   -Wall -W -Wextra -O3 -DNDEBUG  -rdynamic CMakeFiles/unittest.dir/catboost_test.cpp.o  -o unittest  ../src/libcatboost.a 
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-[ 71%] Built target unittest
-[ 85%] Linking CXX executable perf_test
-cd /home/rymis/src/catboost-cxx/build_release/perftest && /usr/bin/cmake -E cmake_link_script CMakeFiles/perf_test.dir/link.txt --verbose=1
-/usr/bin/c++   -Wall -W -Wextra -O3 -DNDEBUG  -rdynamic CMakeFiles/perf_test.dir/main.cpp.o  -o perf_test  ../src/libcatboost.a -ldl 
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-[100%] Built target perf_test
-make[4]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-/usr/bin/cmake -E cmake_progress_start /home/rymis/src/catboost-cxx/build_release/CMakeFiles 0
-make[3]: Leaving directory '/home/rymis/src/catboost-cxx/build_release'
-make[2]: Leaving directory '/home/rymis/src/catboost-cxx'
-(cd ./perftest; ../build_release/perftest/perf_test)
-Average delta: 2.63794e-11
-Average delta bucket: 2.63794e-11
-msrank: static compiled model
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.46852 seconds) Q = 0.55972
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.472315 seconds) Q = 0.55972
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.65508 seconds) Q = 0.55972
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.454267 seconds) Q = 0.55972
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.439072 seconds) Q = 0.55972
-5 iterations have finished in 2.48952 seconds.
-Best time is 0.439072 (4.39072e-05 per prediction, 22775.3 predictions/sec)
-Average time is 0.497904(4.97904e-05 per prediction)
-msrank: this library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.344655 seconds) Q = 0.55972
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.341091 seconds) Q = 0.55972
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.338645 seconds) Q = 0.55972
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.377536 seconds) Q = 0.55972
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.385347 seconds) Q = 0.55972
-5 iterations have finished in 1.78756 seconds.
-Best time is 0.338645 (3.38645e-05 per prediction, 29529.4 predictions/sec)
-Average time is 0.357511(3.57511e-05 per prediction)
-msrank: Yandex library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.743099 seconds) Q = 0.55972
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.623723 seconds) Q = 0.55972
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.623193 seconds) Q = 0.55972
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.627697 seconds) Q = 0.55972
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.650224 seconds) Q = 0.55972
-5 iterations have finished in 3.26818 seconds.
-Best time is 0.623193 (6.23193e-05 per prediction, 16046.4 predictions/sec)
-Average time is 0.653636(6.53636e-05 per prediction)
-msrank: bucket static compiled model
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.461369 seconds) Q = 0.55972
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.443964 seconds) Q = 0.55972
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.449097 seconds) Q = 0.55972
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.459916 seconds) Q = 0.55972
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.45708 seconds) Q = 0.55972
-5 iterations have finished in 2.27166 seconds.
-Best time is 0.443964 (4.43964e-05 per prediction, 22524.3 predictions/sec)
-Average time is 0.454332(4.54332e-05 per prediction)
-msrank: bucket this library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.165374 seconds) Q = 0.55972
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.163033 seconds) Q = 0.55972
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.165528 seconds) Q = 0.55972
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.171667 seconds) Q = 0.55972
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.172588 seconds) Q = 0.55972
-5 iterations have finished in 0.838439 seconds.
-Best time is 0.163033 (1.63033e-05 per prediction, 61337.3 predictions/sec)
-Average time is 0.167688(1.67688e-05 per prediction)
-msrank: bucket Yandex library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.051311 seconds) Q = 0.55972
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.0521879 seconds) Q = 0.55972
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.0525239 seconds) Q = 0.55972
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.0536051 seconds) Q = 0.55972
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.0581779 seconds) Q = 0.55972
-5 iterations have finished in 0.268053 seconds.
-Best time is 0.051311 (5.1311e-06 per prediction, 194890 predictions/sec)
-Average time is 0.0536106(5.36106e-06 per prediction)
-Average delta: 2.10389e-11
-Average delta bucket: 2.10389e-11
-creditgermany: static compiled model
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.00085187 seconds) Q = 0.310115
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.000841856 seconds) Q = 0.310115
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.000844002 seconds) Q = 0.310115
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.000841856 seconds) Q = 0.310115
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.000841856 seconds) Q = 0.310115
-5 iterations have finished in 0.00431991 seconds.
-Best time is 0.000841856 (8.41856e-06 per prediction, 118785 predictions/sec)
-Average time is 0.000863981(8.63981e-06 per prediction)
-creditgermany: this library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.000697851 seconds) Q = 0.310115
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.000694036 seconds) Q = 0.310115
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.000693798 seconds) Q = 0.310115
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.000725985 seconds) Q = 0.310115
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.000693083 seconds) Q = 0.310115
-5 iterations have finished in 0.00359702 seconds.
-Best time is 0.000693083 (6.93083e-06 per prediction, 144283 predictions/sec)
-Average time is 0.000719404(7.19404e-06 per prediction)
-creditgermany: Yandex library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.00135016 seconds) Q = 0.310115
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.00121403 seconds) Q = 0.310115
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.00121379 seconds) Q = 0.310115
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.00121903 seconds) Q = 0.310115
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.00121379 seconds) Q = 0.310115
-5 iterations have finished in 0.00630903 seconds.
-Best time is 0.00121379 (1.21379e-05 per prediction, 82386.6 predictions/sec)
-Average time is 0.00126181(1.26181e-05 per prediction)
-creditgermany: bucket static compiled model
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.00081706 seconds) Q = 0.310115
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.000814915 seconds) Q = 0.310115
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.000840902 seconds) Q = 0.310115
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.000815868 seconds) Q = 0.310115
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.000814915 seconds) Q = 0.310115
-5 iterations have finished in 0.00420189 seconds.
-Best time is 0.000814915 (8.14915e-06 per prediction, 122712 predictions/sec)
-Average time is 0.000840378(8.40378e-06 per prediction)
-creditgermany: bucket this library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.000382185 seconds) Q = 0.310115
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.000380039 seconds) Q = 0.310115
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.000379801 seconds) Q = 0.310115
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.00039196 seconds) Q = 0.310115
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.000385046 seconds) Q = 0.310115
-5 iterations have finished in 0.00201511 seconds.
-Best time is 0.000379801 (3.79801e-06 per prediction, 263296 predictions/sec)
-Average time is 0.000403023(4.03023e-06 per prediction)
-creditgermany: bucket Yandex library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.000156164 seconds) Q = 0.310115
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.000141144 seconds) Q = 0.310115
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.000139952 seconds) Q = 0.310115
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.000139952 seconds) Q = 0.310115
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.000138998 seconds) Q = 0.310115
-5 iterations have finished in 0.000808001 seconds.
-Best time is 0.000138998 (1.38998e-06 per prediction, 719435 predictions/sec)
-Average time is 0.0001616(1.616e-06 per prediction)
-Average delta: 2.10382e-11
-Average delta bucket: 2.10385e-11
-codrna: static compiled model
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.40124 seconds) Q = 0.193261
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.392562 seconds) Q = 0.193261
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.386267 seconds) Q = 0.193261
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.382957 seconds) Q = 0.193261
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.381874 seconds) Q = 0.193261
-5 iterations have finished in 1.94514 seconds.
-Best time is 0.381874 (7.81616e-06 per prediction, 127940 predictions/sec)
-Average time is 0.389027(7.96256e-06 per prediction)
-codrna: this library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.30129 seconds) Q = 0.193261
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.302053 seconds) Q = 0.193261
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.316934 seconds) Q = 0.193261
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.333932 seconds) Q = 0.193261
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.31685 seconds) Q = 0.193261
-5 iterations have finished in 1.57131 seconds.
-Best time is 0.30129 (6.16677e-06 per prediction, 162159 predictions/sec)
-Average time is 0.314262(6.43228e-06 per prediction)
-codrna: Yandex library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.55663 seconds) Q = 0.193261
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.552779 seconds) Q = 0.193261
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.561892 seconds) Q = 0.193261
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.546348 seconds) Q = 0.193261
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.549855 seconds) Q = 0.193261
-5 iterations have finished in 2.76774 seconds.
-Best time is 0.546348 (1.11826e-05 per prediction, 89424.7 predictions/sec)
-Average time is 0.553548(1.133e-05 per prediction)
-codrna: bucket static compiled model
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.382654 seconds) Q = 0.193261
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.39476 seconds) Q = 0.193261
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.395512 seconds) Q = 0.193261
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.381748 seconds) Q = 0.193261
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.38745 seconds) Q = 0.193261
-5 iterations have finished in 1.94237 seconds.
-Best time is 0.381748 (7.81358e-06 per prediction, 127982 predictions/sec)
-Average time is 0.388474(7.95125e-06 per prediction)
-codrna: bucket this library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.160147 seconds) Q = 0.193261
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.162988 seconds) Q = 0.193261
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.160006 seconds) Q = 0.193261
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.162686 seconds) Q = 0.193261
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.161913 seconds) Q = 0.193261
-5 iterations have finished in 0.807989 seconds.
-Best time is 0.160006 (3.27499e-06 per prediction, 305345 predictions/sec)
-Average time is 0.161598(3.30757e-06 per prediction)
-codrna: bucket Yandex library
-BEGIN ITERATION: 1
-END ITERATION: 1 (0.0488701 seconds) Q = 0.193261
-BEGIN ITERATION: 2
-END ITERATION: 2 (0.0505362 seconds) Q = 0.193261
-BEGIN ITERATION: 3
-END ITERATION: 3 (0.050282 seconds) Q = 0.193261
-BEGIN ITERATION: 4
-END ITERATION: 4 (0.0505521 seconds) Q = 0.193261
-BEGIN ITERATION: 5
-END ITERATION: 5 (0.0505009 seconds) Q = 0.193261
-5 iterations have finished in 0.250943 seconds.
-Best time is 0.0488701 (1.00027e-06 per prediction, 999732 predictions/sec)
-Average time is 0.0501886(1.02725e-06 per prediction)
-make[1]: Leaving directory '/home/rymis/src/catboost-cxx'
-WITHOUT SSE:
-make[1]: Entering directory '/home/rymis/src/catboost-cxx'
-make release_nosse
-make[2]: Entering directory '/home/rymis/src/catboost-cxx'
-(cd build_release_nosse; make -j 2)
-make[3]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-/usr/bin/cmake -S/home/rymis/src/catboost-cxx -B/home/rymis/src/catboost-cxx/build_release_nosse --check-build-system CMakeFiles/Makefile.cmake 0
-/usr/bin/cmake -E cmake_progress_start /home/rymis/src/catboost-cxx/build_release_nosse/CMakeFiles /home/rymis/src/catboost-cxx/build_release_nosse/CMakeFiles/progress.marks
-make -f CMakeFiles/Makefile2 all
-make[4]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-make -f src/CMakeFiles/catboost.dir/build.make src/CMakeFiles/catboost.dir/depend
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-cd /home/rymis/src/catboost-cxx/build_release_nosse && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/rymis/src/catboost-cxx /home/rymis/src/catboost-cxx/src /home/rymis/src/catboost-cxx/build_release_nosse /home/rymis/src/catboost-cxx/build_release_nosse/src /home/rymis/src/catboost-cxx/build_release_nosse/src/CMakeFiles/catboost.dir/DependInfo.cmake --color=
-Scanning dependencies of target catboost
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-make -f src/CMakeFiles/catboost.dir/build.make src/CMakeFiles/catboost.dir/build
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-[ 14%] Building CXX object src/CMakeFiles/catboost.dir/catboost.cpp.o
-cd /home/rymis/src/catboost-cxx/build_release_nosse/src && /usr/bin/c++  -DNOSSE -I/home/rymis/src/catboost-cxx/include  -Wall -W -Wextra -O3 -DNDEBUG -fPIC   -std=gnu++14 -o CMakeFiles/catboost.dir/catboost.cpp.o -c /home/rymis/src/catboost-cxx/src/catboost.cpp
-[ 28%] Linking CXX static library libcatboost.a
-cd /home/rymis/src/catboost-cxx/build_release_nosse/src && /usr/bin/cmake -P CMakeFiles/catboost.dir/cmake_clean_target.cmake
-cd /home/rymis/src/catboost-cxx/build_release_nosse/src && /usr/bin/cmake -E cmake_link_script CMakeFiles/catboost.dir/link.txt --verbose=1
-/usr/bin/ar qc libcatboost.a  CMakeFiles/catboost.dir/catboost.cpp.o
-/usr/bin/ranlib libcatboost.a
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-[ 28%] Built target catboost
-make -f unittest/CMakeFiles/unittest.dir/build.make unittest/CMakeFiles/unittest.dir/depend
-make -f perftest/CMakeFiles/perf_test.dir/build.make perftest/CMakeFiles/perf_test.dir/depend
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-cd /home/rymis/src/catboost-cxx/build_release_nosse && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/rymis/src/catboost-cxx /home/rymis/src/catboost-cxx/unittest /home/rymis/src/catboost-cxx/build_release_nosse /home/rymis/src/catboost-cxx/build_release_nosse/unittest /home/rymis/src/catboost-cxx/build_release_nosse/unittest/CMakeFiles/unittest.dir/DependInfo.cmake --color=
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-cd /home/rymis/src/catboost-cxx/build_release_nosse && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/rymis/src/catboost-cxx /home/rymis/src/catboost-cxx/perftest /home/rymis/src/catboost-cxx/build_release_nosse /home/rymis/src/catboost-cxx/build_release_nosse/perftest /home/rymis/src/catboost-cxx/build_release_nosse/perftest/CMakeFiles/perf_test.dir/DependInfo.cmake --color=
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-make -f unittest/CMakeFiles/unittest.dir/build.make unittest/CMakeFiles/unittest.dir/build
-make -f perftest/CMakeFiles/perf_test.dir/build.make perftest/CMakeFiles/perf_test.dir/build
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-make[5]: Entering directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-[ 57%] Linking CXX executable unittest
-[ 57%] Linking CXX executable perf_test
-cd /home/rymis/src/catboost-cxx/build_release_nosse/unittest && /usr/bin/cmake -E cmake_link_script CMakeFiles/unittest.dir/link.txt --verbose=1
-cd /home/rymis/src/catboost-cxx/build_release_nosse/perftest && /usr/bin/cmake -E cmake_link_script CMakeFiles/perf_test.dir/link.txt --verbose=1
-/usr/bin/c++   -Wall -W -Wextra -O3 -DNDEBUG  -rdynamic CMakeFiles/perf_test.dir/main.cpp.o  -o perf_test  ../src/libcatboost.a -ldl 
-/usr/bin/c++   -Wall -W -Wextra -O3 -DNDEBUG  -rdynamic CMakeFiles/unittest.dir/catboost_test.cpp.o  -o unittest  ../src/libcatboost.a 
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-[ 71%] Built target unittest
-make[5]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-[100%] Built target perf_test
-make[4]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-/usr/bin/cmake -E cmake_progress_start /home/rymis/src/catboost-cxx/build_release_nosse/CMakeFiles 0
-make[3]: Leaving directory '/home/rymis/src/catboost-cxx/build_release_nosse'
-make[2]: Leaving directory '/home/rymis/src/catboost-cxx'
-(cd ./perftest; ../build_release_nosse/perftest/perf_test)
 Average delta: 2.63793e-11
 Average delta bucket: 2.63793e-11
 msrank: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.40959 seconds) Q = 0.55972
+END ITERATION: 1 (0.410913 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.408294 seconds) Q = 0.55972
+END ITERATION: 2 (0.408779 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.407111 seconds) Q = 0.55972
+END ITERATION: 3 (0.406745 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.412504 seconds) Q = 0.55972
+END ITERATION: 4 (0.416528 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.408859 seconds) Q = 0.55972
-5 iterations have finished in 2.0466 seconds.
-Best time is 0.407111 (4.07111e-05 per prediction, 24563.3 predictions/sec)
-Average time is 0.409321(4.09321e-05 per prediction)
+END ITERATION: 5 (0.415465 seconds) Q = 0.55972
+5 iterations have finished in 2.05868 seconds.
+Best time is 0.406745 (4.06745e-05 per prediction, 24585.4 predictions/sec)
+Average time is 0.411736(4.11736e-05 per prediction)
 msrank: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (1.52457 seconds) Q = 0.55972
+END ITERATION: 1 (0.239386 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (1.58037 seconds) Q = 0.55972
+END ITERATION: 2 (0.239388 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (1.56022 seconds) Q = 0.55972
+END ITERATION: 3 (0.238892 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (1.55184 seconds) Q = 0.55972
+END ITERATION: 4 (0.237415 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (1.57077 seconds) Q = 0.55972
-5 iterations have finished in 7.78802 seconds.
-Best time is 1.52457 (0.000152457 per prediction, 6559.22 predictions/sec)
-Average time is 1.5576(0.00015576 per prediction)
+END ITERATION: 5 (0.238233 seconds) Q = 0.55972
+5 iterations have finished in 1.19356 seconds.
+Best time is 0.237415 (2.37415e-05 per prediction, 42120.3 predictions/sec)
+Average time is 0.238712(2.38712e-05 per prediction)
 msrank: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.592504 seconds) Q = 0.55972
+END ITERATION: 1 (0.579847 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.613953 seconds) Q = 0.55972
+END ITERATION: 2 (0.584201 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.624932 seconds) Q = 0.55972
+END ITERATION: 3 (0.577091 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.606797 seconds) Q = 0.55972
+END ITERATION: 4 (0.573444 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.626257 seconds) Q = 0.55972
-5 iterations have finished in 3.06469 seconds.
-Best time is 0.592504 (5.92504e-05 per prediction, 16877.5 predictions/sec)
-Average time is 0.612938(6.12938e-05 per prediction)
+END ITERATION: 5 (0.579238 seconds) Q = 0.55972
+5 iterations have finished in 2.89406 seconds.
+Best time is 0.573444 (5.73444e-05 per prediction, 17438.5 predictions/sec)
+Average time is 0.578812(5.78812e-05 per prediction)
 msrank: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.438229 seconds) Q = 0.55972
+END ITERATION: 1 (0.413727 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.432829 seconds) Q = 0.55972
+END ITERATION: 2 (0.413073 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.434403 seconds) Q = 0.55972
+END ITERATION: 3 (0.412256 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.437881 seconds) Q = 0.55972
+END ITERATION: 4 (0.413478 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.432045 seconds) Q = 0.55972
-5 iterations have finished in 2.17563 seconds.
-Best time is 0.432045 (4.32045e-05 per prediction, 23145.7 predictions/sec)
-Average time is 0.435127(4.35127e-05 per prediction)
+END ITERATION: 5 (0.412296 seconds) Q = 0.55972
+5 iterations have finished in 2.06508 seconds.
+Best time is 0.412256 (4.12256e-05 per prediction, 24256.8 predictions/sec)
+Average time is 0.413016(4.13016e-05 per prediction)
 msrank: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (1.18207 seconds) Q = 0.55972
+END ITERATION: 1 (0.151459 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (1.23319 seconds) Q = 0.55972
+END ITERATION: 2 (0.152128 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (1.19649 seconds) Q = 0.55972
+END ITERATION: 3 (0.151043 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (1.19091 seconds) Q = 0.55972
+END ITERATION: 4 (0.152178 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (1.18826 seconds) Q = 0.55972
-5 iterations have finished in 5.99118 seconds.
-Best time is 1.18207 (0.000118207 per prediction, 8459.77 predictions/sec)
-Average time is 1.19824(0.000119824 per prediction)
+END ITERATION: 5 (0.151328 seconds) Q = 0.55972
+5 iterations have finished in 0.758385 seconds.
+Best time is 0.151043 (1.51043e-05 per prediction, 66206.3 predictions/sec)
+Average time is 0.151677(1.51677e-05 per prediction)
 msrank: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.0566509 seconds) Q = 0.55972
+END ITERATION: 1 (0.0490949 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.051986 seconds) Q = 0.55972
+END ITERATION: 2 (0.0493271 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.0513649 seconds) Q = 0.55972
+END ITERATION: 3 (0.0494249 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.0518591 seconds) Q = 0.55972
+END ITERATION: 4 (0.0493069 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.0637012 seconds) Q = 0.55972
-5 iterations have finished in 0.275847 seconds.
-Best time is 0.0513649 (5.13649e-06 per prediction, 194685 predictions/sec)
-Average time is 0.0551694(5.51694e-06 per prediction)
-Average delta: 2.10388e-11
-Average delta bucket: 2.10388e-11
+END ITERATION: 5 (0.049336 seconds) Q = 0.55972
+5 iterations have finished in 0.246703 seconds.
+Best time is 0.0490949 (4.90949e-06 per prediction, 203687 predictions/sec)
+Average time is 0.0493406(4.93406e-06 per prediction)
+Average delta: 2.10389e-11
+Average delta bucket: 2.10389e-11
 creditgermany: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000715971 seconds) Q = 0.310115
+END ITERATION: 1 (0.000686169 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000714064 seconds) Q = 0.310115
+END ITERATION: 2 (0.000686169 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000746012 seconds) Q = 0.310115
+END ITERATION: 3 (0.00068593 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000718832 seconds) Q = 0.310115
+END ITERATION: 4 (0.00068903 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000715017 seconds) Q = 0.310115
-5 iterations have finished in 0.00369501 seconds.
-Best time is 0.000714064 (7.14064e-06 per prediction, 140044 predictions/sec)
-Average time is 0.000739002(7.39002e-06 per prediction)
+END ITERATION: 5 (0.000686169 seconds) Q = 0.310115
+5 iterations have finished in 0.00353193 seconds.
+Best time is 0.00068593 (6.8593e-06 per prediction, 145787 predictions/sec)
+Average time is 0.000706387(7.06387e-06 per prediction)
 creditgermany: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.00350714 seconds) Q = 0.310115
+END ITERATION: 1 (0.000433922 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.00350904 seconds) Q = 0.310115
+END ITERATION: 2 (0.000431776 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.00349522 seconds) Q = 0.310115
+END ITERATION: 3 (0.000432014 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.00349188 seconds) Q = 0.310115
+END ITERATION: 4 (0.000432968 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.00349307 seconds) Q = 0.310115
-5 iterations have finished in 0.017581 seconds.
-Best time is 0.00349188 (3.49188e-05 per prediction, 28637.9 predictions/sec)
-Average time is 0.0035162(3.5162e-05 per prediction)
+END ITERATION: 5 (0.000432968 seconds) Q = 0.310115
+5 iterations have finished in 0.00225496 seconds.
+Best time is 0.000431776 (4.31776e-06 per prediction, 231602 predictions/sec)
+Average time is 0.000450993(4.50993e-06 per prediction)
 creditgermany: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.00126219 seconds) Q = 0.310115
+END ITERATION: 1 (0.00110507 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.00106597 seconds) Q = 0.310115
+END ITERATION: 2 (0.00103688 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.00106621 seconds) Q = 0.310115
+END ITERATION: 3 (0.00102496 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.00106597 seconds) Q = 0.310115
+END ITERATION: 4 (0.00103879 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.00106788 seconds) Q = 0.310115
-5 iterations have finished in 0.00561094 seconds.
-Best time is 0.00106597 (1.06597e-05 per prediction, 93811.3 predictions/sec)
-Average time is 0.00112219(1.12219e-05 per prediction)
+END ITERATION: 5 (0.00102901 seconds) Q = 0.310115
+5 iterations have finished in 0.00532007 seconds.
+Best time is 0.00102496 (1.02496e-05 per prediction, 97564.6 predictions/sec)
+Average time is 0.00106401(1.06401e-05 per prediction)
 creditgermany: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000742197 seconds) Q = 0.310115
+END ITERATION: 1 (0.000687122 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000715017 seconds) Q = 0.310115
+END ITERATION: 2 (0.000684023 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000715017 seconds) Q = 0.310115
+END ITERATION: 3 (0.000684023 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000722885 seconds) Q = 0.310115
+END ITERATION: 4 (0.000684023 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000723124 seconds) Q = 0.310115
-5 iterations have finished in 0.00370598 seconds.
-Best time is 0.000715017 (7.15017e-06 per prediction, 139857 predictions/sec)
-Average time is 0.000741196(7.41196e-06 per prediction)
+END ITERATION: 5 (0.000706911 seconds) Q = 0.310115
+5 iterations have finished in 0.00353003 seconds.
+Best time is 0.000684023 (6.84023e-06 per prediction, 146194 predictions/sec)
+Average time is 0.000706005(7.06005e-06 per prediction)
 creditgermany: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.00300598 seconds) Q = 0.310115
+END ITERATION: 1 (0.000311852 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.0029552 seconds) Q = 0.310115
+END ITERATION: 2 (0.000311136 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.00294113 seconds) Q = 0.310115
+END ITERATION: 3 (0.000310898 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.00285697 seconds) Q = 0.310115
+END ITERATION: 4 (0.000311136 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.00289202 seconds) Q = 0.310115
-5 iterations have finished in 0.014745 seconds.
-Best time is 0.00285697 (2.85697e-05 per prediction, 35002.1 predictions/sec)
-Average time is 0.002949(2.949e-05 per prediction)
+END ITERATION: 5 (0.000320911 seconds) Q = 0.310115
+5 iterations have finished in 0.0016439 seconds.
+Best time is 0.000310898 (3.10898e-06 per prediction, 321649 predictions/sec)
+Average time is 0.000328779(3.28779e-06 per prediction)
 creditgermany: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000138044 seconds) Q = 0.310115
+END ITERATION: 1 (0.000128984 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000118971 seconds) Q = 0.310115
+END ITERATION: 2 (0.00011611 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000118017 seconds) Q = 0.310115
+END ITERATION: 3 (0.000113964 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000118971 seconds) Q = 0.310115
+END ITERATION: 4 (0.000114918 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000118971 seconds) Q = 0.310115
-5 iterations have finished in 0.000690937 seconds.
-Best time is 0.000118017 (1.18017e-06 per prediction, 847334 predictions/sec)
-Average time is 0.000138187(1.38187e-06 per prediction)
+END ITERATION: 5 (0.000113964 seconds) Q = 0.310115
+5 iterations have finished in 0.000664234 seconds.
+Best time is 0.000113964 (1.13964e-06 per prediction, 877469 predictions/sec)
+Average time is 0.000132847(1.32847e-06 per prediction)
 Average delta: 2.10389e-11
 Average delta bucket: 2.10389e-11
 codrna: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.366183 seconds) Q = 0.193261
+END ITERATION: 1 (0.362128 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.369106 seconds) Q = 0.193261
+END ITERATION: 2 (0.350384 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.365606 seconds) Q = 0.193261
+END ITERATION: 3 (0.36084 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.367462 seconds) Q = 0.193261
+END ITERATION: 4 (0.353939 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.364778 seconds) Q = 0.193261
-5 iterations have finished in 1.83335 seconds.
-Best time is 0.364778 (7.46624e-06 per prediction, 133936 predictions/sec)
-Average time is 0.366671(7.50498e-06 per prediction)
+END ITERATION: 5 (0.345835 seconds) Q = 0.193261
+5 iterations have finished in 1.77335 seconds.
+Best time is 0.345835 (7.07851e-06 per prediction, 141273 predictions/sec)
+Average time is 0.35467(7.25934e-06 per prediction)
 codrna: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.992148 seconds) Q = 0.193261
+END ITERATION: 1 (0.205403 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.982589 seconds) Q = 0.193261
+END ITERATION: 2 (0.205519 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.993793 seconds) Q = 0.193261
+END ITERATION: 3 (0.211223 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.972099 seconds) Q = 0.193261
+END ITERATION: 4 (0.215054 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.989048 seconds) Q = 0.193261
-5 iterations have finished in 4.92992 seconds.
-Best time is 0.972099 (1.98968e-05 per prediction, 50259.3 predictions/sec)
-Average time is 0.985984(2.0181e-05 per prediction)
+END ITERATION: 5 (0.217603 seconds) Q = 0.193261
+5 iterations have finished in 1.05503 seconds.
+Best time is 0.205403 (4.20416e-06 per prediction, 237859 predictions/sec)
+Average time is 0.211006(4.31884e-06 per prediction)
 codrna: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.536612 seconds) Q = 0.193261
+END ITERATION: 1 (0.522237 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.533311 seconds) Q = 0.193261
+END ITERATION: 2 (0.510969 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.528648 seconds) Q = 0.193261
+END ITERATION: 3 (0.525617 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.531237 seconds) Q = 0.193261
+END ITERATION: 4 (0.541959 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.533081 seconds) Q = 0.193261
-5 iterations have finished in 2.66314 seconds.
-Best time is 0.528648 (1.08203e-05 per prediction, 92418.8 predictions/sec)
-Average time is 0.532628(1.09018e-05 per prediction)
+END ITERATION: 5 (0.535139 seconds) Q = 0.193261
+5 iterations have finished in 2.63616 seconds.
+Best time is 0.510969 (1.04585e-05 per prediction, 95616.4 predictions/sec)
+Average time is 0.527231(1.07913e-05 per prediction)
 codrna: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.364873 seconds) Q = 0.193261
+END ITERATION: 1 (0.359923 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.365422 seconds) Q = 0.193261
+END ITERATION: 2 (0.359473 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.365325 seconds) Q = 0.193261
+END ITERATION: 3 (0.358228 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.364222 seconds) Q = 0.193261
+END ITERATION: 4 (0.360576 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.365994 seconds) Q = 0.193261
-5 iterations have finished in 1.82608 seconds.
-Best time is 0.364222 (7.45485e-06 per prediction, 134141 predictions/sec)
-Average time is 0.365217(7.47522e-06 per prediction)
+END ITERATION: 5 (0.359288 seconds) Q = 0.193261
+5 iterations have finished in 1.79772 seconds.
+Best time is 0.358228 (7.33217e-06 per prediction, 136385 predictions/sec)
+Average time is 0.359544(7.35911e-06 per prediction)
 codrna: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.650848 seconds) Q = 0.193261
+END ITERATION: 1 (0.1549 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.658556 seconds) Q = 0.193261
+END ITERATION: 2 (0.154373 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.655876 seconds) Q = 0.193261
+END ITERATION: 3 (0.155492 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.651458 seconds) Q = 0.193261
+END ITERATION: 4 (0.154419 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.651323 seconds) Q = 0.193261
-5 iterations have finished in 3.26834 seconds.
-Best time is 0.650848 (1.33215e-05 per prediction, 75066.7 predictions/sec)
-Average time is 0.653669(1.33792e-05 per prediction)
+END ITERATION: 5 (0.154678 seconds) Q = 0.193261
+5 iterations have finished in 0.7741 seconds.
+Best time is 0.154373 (3.15969e-06 per prediction, 316487 predictions/sec)
+Average time is 0.15482(3.16884e-06 per prediction)
 codrna: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.0479181 seconds) Q = 0.193261
+END ITERATION: 1 (0.046633 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.0478151 seconds) Q = 0.193261
+END ITERATION: 2 (0.0474391 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.047684 seconds) Q = 0.193261
+END ITERATION: 3 (0.047447 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.0499408 seconds) Q = 0.193261
+END ITERATION: 4 (0.0474811 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.0484071 seconds) Q = 0.193261
-5 iterations have finished in 0.241991 seconds.
-Best time is 0.047684 (9.7599e-07 per prediction, 1.0246e+06 predictions/sec)
-Average time is 0.0483982(9.9061e-07 per prediction)
-make[1]: Leaving directory '/home/rymis/src/catboost-cxx'
+END ITERATION: 5 (0.0479178 seconds) Q = 0.193261
+5 iterations have finished in 0.237095 seconds.
+Best time is 0.046633 (9.5448e-07 per prediction, 1.04769e+06 predictions/sec)
+Average time is 0.047419(9.70567e-07 per prediction)
+WITHOUT SSE:
+Average delta: 2.63793e-11
+Average delta bucket: 2.63793e-11
+msrank: static compiled model
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.435383 seconds) Q = 0.55972
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.436308 seconds) Q = 0.55972
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.435907 seconds) Q = 0.55972
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.431612 seconds) Q = 0.55972
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.445144 seconds) Q = 0.55972
+5 iterations have finished in 2.18459 seconds.
+Best time is 0.431612 (4.31612e-05 per prediction, 23169 predictions/sec)
+Average time is 0.436917(4.36917e-05 per prediction)
+msrank: this library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.4162 seconds) Q = 0.55972
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.417491 seconds) Q = 0.55972
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.416817 seconds) Q = 0.55972
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.415733 seconds) Q = 0.55972
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.418045 seconds) Q = 0.55972
+5 iterations have finished in 2.0845 seconds.
+Best time is 0.415733 (4.15733e-05 per prediction, 24053.9 predictions/sec)
+Average time is 0.416901(4.16901e-05 per prediction)
+msrank: Yandex library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.606974 seconds) Q = 0.55972
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.606289 seconds) Q = 0.55972
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.571957 seconds) Q = 0.55972
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.571413 seconds) Q = 0.55972
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.575012 seconds) Q = 0.55972
+5 iterations have finished in 2.94688 seconds.
+Best time is 0.571413 (5.71413e-05 per prediction, 17500.5 predictions/sec)
+Average time is 0.589375(5.89375e-05 per prediction)
+msrank: bucket static compiled model
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.417835 seconds) Q = 0.55972
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.419768 seconds) Q = 0.55972
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.41202 seconds) Q = 0.55972
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.413206 seconds) Q = 0.55972
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.413672 seconds) Q = 0.55972
+5 iterations have finished in 2.07676 seconds.
+Best time is 0.41202 (4.1202e-05 per prediction, 24270.7 predictions/sec)
+Average time is 0.415352(4.15352e-05 per prediction)
+msrank: bucket this library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.214786 seconds) Q = 0.55972
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.213462 seconds) Q = 0.55972
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.21492 seconds) Q = 0.55972
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.214092 seconds) Q = 0.55972
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.213765 seconds) Q = 0.55972
+5 iterations have finished in 1.07126 seconds.
+Best time is 0.213462 (2.13462e-05 per prediction, 46846.7 predictions/sec)
+Average time is 0.214252(2.14252e-05 per prediction)
+msrank: bucket Yandex library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.0496039 seconds) Q = 0.55972
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.049485 seconds) Q = 0.55972
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.0492392 seconds) Q = 0.55972
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.049592 seconds) Q = 0.55972
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.0501182 seconds) Q = 0.55972
+5 iterations have finished in 0.24825 seconds.
+Best time is 0.0492392 (4.92392e-06 per prediction, 203090 predictions/sec)
+Average time is 0.04965(4.965e-06 per prediction)
+Average delta: 2.10388e-11
+Average delta bucket: 2.10388e-11
+creditgermany: static compiled model
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.000693083 seconds) Q = 0.310115
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.000692844 seconds) Q = 0.310115
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.000692129 seconds) Q = 0.310115
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.000690937 seconds) Q = 0.310115
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.00069809 seconds) Q = 0.310115
+5 iterations have finished in 0.00354791 seconds.
+Best time is 0.000690937 (6.90937e-06 per prediction, 144731 predictions/sec)
+Average time is 0.000709581(7.09581e-06 per prediction)
+creditgermany: this library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.000787973 seconds) Q = 0.310115
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.000752926 seconds) Q = 0.310115
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.000751972 seconds) Q = 0.310115
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.000751972 seconds) Q = 0.310115
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.000751972 seconds) Q = 0.310115
+5 iterations have finished in 0.00387788 seconds.
+Best time is 0.000751972 (7.51972e-06 per prediction, 132984 predictions/sec)
+Average time is 0.000775576(7.75576e-06 per prediction)
+creditgermany: Yandex library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.00112605 seconds) Q = 0.310115
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.00101113 seconds) Q = 0.310115
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.00101089 seconds) Q = 0.310115
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.00104403 seconds) Q = 0.310115
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.00101089 seconds) Q = 0.310115
+5 iterations have finished in 0.00528502 seconds.
+Best time is 0.00101089 (1.01089e-05 per prediction, 98922.3 predictions/sec)
+Average time is 0.001057(1.057e-05 per prediction)
+creditgermany: bucket static compiled model
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.00069499 seconds) Q = 0.310115
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.000690937 seconds) Q = 0.310115
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.000690937 seconds) Q = 0.310115
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.000694036 seconds) Q = 0.310115
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.000692129 seconds) Q = 0.310115
+5 iterations have finished in 0.0035429 seconds.
+Best time is 0.000690937 (6.90937e-06 per prediction, 144731 predictions/sec)
+Average time is 0.00070858(7.0858e-06 per prediction)
+creditgermany: bucket this library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.000417948 seconds) Q = 0.310115
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.000416994 seconds) Q = 0.310115
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.00041604 seconds) Q = 0.310115
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.00041604 seconds) Q = 0.310115
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.00041604 seconds) Q = 0.310115
+5 iterations have finished in 0.00216007 seconds.
+Best time is 0.00041604 (4.1604e-06 per prediction, 240361 predictions/sec)
+Average time is 0.000432014(4.32014e-06 per prediction)
+creditgermany: bucket Yandex library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.000133038 seconds) Q = 0.310115
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.000120163 seconds) Q = 0.310115
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.000119925 seconds) Q = 0.310115
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.000119925 seconds) Q = 0.310115
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.000118971 seconds) Q = 0.310115
+5 iterations have finished in 0.000701189 seconds.
+Best time is 0.000118971 (1.18971e-06 per prediction, 840542 predictions/sec)
+Average time is 0.000140238(1.40238e-06 per prediction)
+Average delta: 2.10389e-11
+Average delta bucket: 2.10389e-11
+codrna: static compiled model
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.350996 seconds) Q = 0.193261
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.348648 seconds) Q = 0.193261
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.358113 seconds) Q = 0.193261
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.364447 seconds) Q = 0.193261
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.359541 seconds) Q = 0.193261
+5 iterations have finished in 1.78196 seconds.
+Best time is 0.348648 (7.13609e-06 per prediction, 140133 predictions/sec)
+Average time is 0.356393(7.29461e-06 per prediction)
+codrna: this library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.370067 seconds) Q = 0.193261
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.371527 seconds) Q = 0.193261
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.374838 seconds) Q = 0.193261
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.391419 seconds) Q = 0.193261
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.388968 seconds) Q = 0.193261
+5 iterations have finished in 1.89704 seconds.
+Best time is 0.370067 (7.5745e-06 per prediction, 132022 predictions/sec)
+Average time is 0.379408(7.76568e-06 per prediction)
+codrna: Yandex library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.528123 seconds) Q = 0.193261
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.524235 seconds) Q = 0.193261
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.525974 seconds) Q = 0.193261
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.52617 seconds) Q = 0.193261
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.528178 seconds) Q = 0.193261
+5 iterations have finished in 2.63289 seconds.
+Best time is 0.524235 (1.073e-05 per prediction, 93196.8 predictions/sec)
+Average time is 0.526579(1.0778e-05 per prediction)
+codrna: bucket static compiled model
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.357257 seconds) Q = 0.193261
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.362847 seconds) Q = 0.193261
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.363093 seconds) Q = 0.193261
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.360542 seconds) Q = 0.193261
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.364286 seconds) Q = 0.193261
+5 iterations have finished in 1.80825 seconds.
+Best time is 0.357257 (7.3123e-06 per prediction, 136756 predictions/sec)
+Average time is 0.361649(7.4022e-06 per prediction)
+codrna: bucket this library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.209045 seconds) Q = 0.193261
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.210001 seconds) Q = 0.193261
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.210777 seconds) Q = 0.193261
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.210668 seconds) Q = 0.193261
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.211464 seconds) Q = 0.193261
+5 iterations have finished in 1.05219 seconds.
+Best time is 0.209045 (4.27871e-06 per prediction, 233715 predictions/sec)
+Average time is 0.210437(4.30721e-06 per prediction)
+codrna: bucket Yandex library
+BEGIN ITERATION: 1
+END ITERATION: 1 (0.0464559 seconds) Q = 0.193261
+BEGIN ITERATION: 2
+END ITERATION: 2 (0.0473311 seconds) Q = 0.193261
+BEGIN ITERATION: 3
+END ITERATION: 3 (0.0477271 seconds) Q = 0.193261
+BEGIN ITERATION: 4
+END ITERATION: 4 (0.0486498 seconds) Q = 0.193261
+BEGIN ITERATION: 5
+END ITERATION: 5 (0.0478261 seconds) Q = 0.193261
+5 iterations have finished in 0.238179 seconds.
+Best time is 0.0464559 (9.50854e-07 per prediction, 1.05169e+06 predictions/sec)
+Average time is 0.0476358(9.75004e-07 per prediction)
