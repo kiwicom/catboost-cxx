@@ -209,4 +209,4 @@ namespace catboost {
 
 } // namespace catboost
 
-#endif
+#endif // NOSSE

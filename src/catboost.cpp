@@ -2,6 +2,8 @@
 #include "json.hpp"
 #include <fstream>
 
+#include "vec4.hpp"
+
 namespace catboost {
 
     namespace {
@@ -166,9 +168,6 @@ namespace catboost {
     };
 
 #else // NOSSE
-
-// SSE4.1
-#include "vec4.hpp"
 
     namespace {
 
