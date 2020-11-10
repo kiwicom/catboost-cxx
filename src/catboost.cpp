@@ -61,7 +61,12 @@ namespace catboost {
                     const auto& scale_and_bias = model.at("scale_and_bias");
                     if (scale_and_bias.size() == 2) {
                         scale = scale_and_bias.at(0).get<double>();
-                        bias = scale_and_bias.at(1).at(0).get<double>();
+                        const auto& node = scale_and_bias.at(1);
+                        if (node.is_number()) {
+                            bias = node.get<double>();
+                        } else {
+                            bias = scale_and_bias.at(1).at(0).get<double>();
+                        }
                     }
                 }
 
