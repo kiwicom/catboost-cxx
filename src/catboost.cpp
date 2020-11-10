@@ -160,39 +160,6 @@ namespace catboost {
             }
         }
 
-        void predict4(const float* f0, const float* f1, const float* f2, const float* f3, double *y) const noexcept {
-            y[0] = 0.0;
-            y[1] = 0.0;
-            y[2] = 0.0;
-            y[3] = 0.0;
-            uint32_t idx0 = 0;
-            uint32_t idx1 = 0;
-            uint32_t idx2 = 0;
-            uint32_t idx3 = 0;
-            size_t off = 0;
-            uint32_t one = 1;
-
-            for (const auto& split : splits) {
-                idx0 |= split.apply(f0, one);
-                idx1 |= split.apply(f1, one);
-                idx2 |= split.apply(f2, one);
-                idx3 |= split.apply(f3, one);
-                one <<= 1;
-                if (split.count) {
-                    y[0] += values[off + idx0];
-                    y[1] += values[off + idx1];
-                    y[2] += values[off + idx2];
-                    y[3] += values[off + idx3];
-                    off += split.count;
-                    one = 1;
-                    idx0 = 0;
-                    idx1 = 0;
-                    idx2 = 0;
-                    idx3 = 0;
-                }
-            }
-        }
-
     };
 
 #else // NOSSE
@@ -583,134 +550,6 @@ namespace catboost {
             }
         }
 
-        void predict4(const float* f0, const float* f1, const float* f2, const float* f3, double *y) const noexcept {
-            y[0] = 0.0;
-            y[1] = 0.0;
-            y[2] = 0.0;
-            y[3] = 0.0;
-
-            auto iter = splits.iter();
-            uint32_t offset = 0;
-
-            for (const SplitInfo* info = iter.read<SplitInfo>(); info != nullptr; info = iter.read<SplitInfo>()) {
-                switch (info->type) {
-                case SPLIT_SIMPLE:
-                { // This situation is impossible, but it could be used for debugging sometime.
-                    uint32_t one = 1;
-                    uint32_t idx0 = 0;
-                    uint32_t idx1 = 0;
-                    uint32_t idx2 = 0;
-                    uint32_t idx3 = 0;
-                    for (uint32_t i = 0; i < info->depth; ++i) {
-                        const Split* split = iter.read<Split>();
-                        idx0 |= split->apply(f0, one);
-                        idx1 |= split->apply(f1, one);
-                        idx2 |= split->apply(f2, one);
-                        idx3 |= split->apply(f3, one);
-                        one <<= 1;
-                    }
-
-                    y[0] += values[offset + idx0];
-                    y[1] += values[offset + idx1];
-                    y[2] += values[offset + idx2];
-                    y[3] += values[offset + idx3];
-                    offset += static_cast<uint32_t>(1) << info->depth;
-                }
-                break;
-
-                case SPLIT4_SINGLE_TREE:
-                {
-                    uint32_t i = 0;
-                    Vec4i one4{ 8, 4, 2, 1 };
-                    Vec4i idx40{};
-                    Vec4i idx41{};
-                    Vec4i idx42{};
-                    Vec4i idx43{};
-
-                    for (; i + 4 <= info->depth; i += 4) {
-                        const Split4* split = iter.read<Split4>();
-                        idx40 |= split->apply(f0, one4);
-                        idx41 |= split->apply(f1, one4);
-                        idx42 |= split->apply(f2, one4);
-                        idx43 |= split->apply(f3, one4);
-                        one4 <<= 4;
-                    }
-
-                    uint32_t idx0 = idx40.sum();
-                    uint32_t idx1 = idx41.sum();
-                    uint32_t idx2 = idx42.sum();
-                    uint32_t idx3 = idx43.sum();
-                    uint32_t one = static_cast<uint32_t>(1) << i;
-
-                    for (; i < info->depth; ++i) {
-                        const Split* split = iter.read<Split>();
-                        idx0 |= split->apply(f0, one);
-                        idx1 |= split->apply(f1, one);
-                        idx2 |= split->apply(f2, one);
-                        idx3 |= split->apply(f3, one);
-                        one <<= 1;
-                    }
-
-                    y[0] += values[offset + idx0];
-                    y[1] += values[offset + idx1];
-                    y[2] += values[offset + idx2];
-                    y[3] += values[offset + idx3];
-                    offset += static_cast<uint32_t>(1) << info->depth;
-                }
-                break;
-
-                case SPLIT4_MULTI_TREE:
-                {
-                    Vec4i idx0{};
-                    Vec4i idx1{};
-                    Vec4i idx2{};
-                    Vec4i idx3{};
-                    Vec4i one{1, 1, 1, 1};
-
-                    for (uint32_t i = 0; i < info->depth; ++i) {
-                        const Split4* split = iter.read<Split4>();
-                        idx0 |= split->apply(f0, one);
-                        idx1 |= split->apply(f1, one);
-                        idx2 |= split->apply(f2, one);
-                        idx3 |= split->apply(f3, one);
-                        one <<= 1;
-                    }
-
-                    alignas(16) uint32_t index0[4];
-                    alignas(16) uint32_t index1[4];
-                    alignas(16) uint32_t index2[4];
-                    alignas(16) uint32_t index3[4];
-
-                    idx0.store(index0);
-                    idx1.store(index1);
-                    idx2.store(index2);
-                    idx3.store(index3);
-
-                    y[0] += values[offset + index0[3]];
-                    y[1] += values[offset + index1[3]];
-                    y[2] += values[offset + index2[3]];
-                    y[3] += values[offset + index3[3]];
-                    offset += static_cast<uint32_t>(1) << info->depth;
-                    y[0] += values[offset + index0[2]];
-                    y[1] += values[offset + index1[2]];
-                    y[2] += values[offset + index2[2]];
-                    y[3] += values[offset + index3[2]];
-                    offset += static_cast<uint32_t>(1) << info->depth;
-                    y[0] += values[offset + index0[1]];
-                    y[1] += values[offset + index1[1]];
-                    y[2] += values[offset + index2[1]];
-                    y[3] += values[offset + index3[1]];
-                    offset += static_cast<uint32_t>(1) << info->depth;
-                    y[0] += values[offset + index0[0]];
-                    y[1] += values[offset + index1[0]];
-                    y[2] += values[offset + index2[0]];
-                    y[3] += values[offset + index3[0]];
-                    offset += static_cast<uint32_t>(1) << info->depth;
-                }
-                break;
-                } // switch (info->type)
-            }
-        }
     };
 
 #endif // NOSSE
@@ -774,8 +613,6 @@ namespace catboost {
 
         for (; i + 8 <= size; i += 8) {
             impl_->predict_n<8>(features + i, y + i);
-            for (size_t j = 0; j < 8; ++j)
-                y[i + j] = scale_ * y[i + j] + bias_;
         }
 
         size_t rest = size - i;
@@ -783,14 +620,14 @@ namespace catboost {
             case 7: impl_->predict_n<7>(features + i, y + i); break;
             case 6: impl_->predict_n<6>(features + i, y + i); break;
             case 5: impl_->predict_n<5>(features + i, y + i); break;
-            case 4: impl_->predict4(features[i], features[i + 1], features[i + 2], features[i + 3], y + i); break;
+            case 4: impl_->predict_n<4>(features + i, y + i); break;
             case 3: impl_->predict_n<3>(features + i, y + i); break;
             case 2: impl_->predict_n<2>(features + i, y + i); break;
             case 1: impl_->predict_n<1>(features + i, y + i); break;
         }
 
-        for (; i < size; ++i)
-            y[i] = scale_ * y[i] + bias_;
+        for (size_t j = 0; j < size; ++j)
+            y[j] = scale_ * y[j] + bias_;
 
         return;
     }
