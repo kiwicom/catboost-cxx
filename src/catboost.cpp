@@ -783,7 +783,7 @@ namespace catboost {
             case 7: impl_->predict_n<7>(features + i, y + i); break;
             case 6: impl_->predict_n<6>(features + i, y + i); break;
             case 5: impl_->predict_n<5>(features + i, y + i); break;
-            case 4: impl_->predict_n<4>(features + i, y + i); break;
+            case 4: impl_->predict4(features[i], features[i + 1], features[i + 2], features[i + 3], y + i); break;
             case 3: impl_->predict_n<3>(features + i, y + i); break;
             case 2: impl_->predict_n<2>(features + i, y + i); break;
             case 1: impl_->predict_n<1>(features + i, y + i); break;
@@ -793,38 +793,6 @@ namespace catboost {
             y[i] = scale_ * y[i] + bias_;
 
         return;
-
-#if 0
-        for (; i + 4 <= size; i += 4) {
-            std::array<const float*, 4> f;
-            for (size_t j = 0; j < 4; ++j)
-                f[j] = features[i + j];
-            impl_->predict_n(f, y + i);
-            for (size_t j = 0; j < 4; ++j)
-                y[i + j] = scale_ * y[i + j] + bias_;
-        }
-
-        for (; i + 2 <= size; i += 2) {
-            std::array<const float*, 2> f;
-            for (size_t j = 0; j < 2; ++j)
-                f[j] = features[i + j];
-            impl_->predict_n(f, y + i);
-            for (size_t j = 0; j < 2; ++j)
-                y[i + j] = scale_ * y[i + j] + bias_;
-        }
-#endif
-
-        for (; i + 4 <= size; i += 4) {
-            impl_->predict4(features[i], features[i + 1], features[i + 2], features[i + 3], y + i);
-            y[i] = scale_ * y[i] + bias_;
-            y[i + 1] = scale_ * y[i + 1] + bias_;
-            y[i + 2] = scale_ * y[i + 2] + bias_;
-            y[i + 3] = scale_ * y[i + 3] + bias_;
-        }
-
-        for (; i < size; ++i) {
-            y[i] = apply(features[i], count);
-        }
     }
 
     size_t Model::feature_count() const {
