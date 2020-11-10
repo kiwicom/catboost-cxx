@@ -3,516 +3,516 @@ Average delta: 2.63793e-11
 Average delta bucket: 2.63793e-11
 msrank: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.410913 seconds) Q = 0.55972
+END ITERATION: 1 (0.397135 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.408779 seconds) Q = 0.55972
+END ITERATION: 2 (0.396478 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.406745 seconds) Q = 0.55972
+END ITERATION: 3 (0.396141 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.416528 seconds) Q = 0.55972
+END ITERATION: 4 (0.397553 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.415465 seconds) Q = 0.55972
-5 iterations have finished in 2.05868 seconds.
-Best time is 0.406745 (4.06745e-05 per prediction, 24585.4 predictions/sec)
-Average time is 0.411736(4.11736e-05 per prediction)
+END ITERATION: 5 (0.400191 seconds) Q = 0.55972
+5 iterations have finished in 1.98773 seconds.
+Best time is 0.396141 (3.96141e-05 per prediction, 25243.5 predictions/sec)
+Average time is 0.397547(3.97547e-05 per prediction)
 msrank: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.239386 seconds) Q = 0.55972
+END ITERATION: 1 (0.223883 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.239388 seconds) Q = 0.55972
+END ITERATION: 2 (0.225185 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.238892 seconds) Q = 0.55972
+END ITERATION: 3 (0.226216 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.237415 seconds) Q = 0.55972
+END ITERATION: 4 (0.225657 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.238233 seconds) Q = 0.55972
-5 iterations have finished in 1.19356 seconds.
-Best time is 0.237415 (2.37415e-05 per prediction, 42120.3 predictions/sec)
-Average time is 0.238712(2.38712e-05 per prediction)
+END ITERATION: 5 (0.225547 seconds) Q = 0.55972
+5 iterations have finished in 1.12672 seconds.
+Best time is 0.223883 (2.23883e-05 per prediction, 44666.2 predictions/sec)
+Average time is 0.225345(2.25345e-05 per prediction)
 msrank: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.579847 seconds) Q = 0.55972
+END ITERATION: 1 (0.575967 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.584201 seconds) Q = 0.55972
+END ITERATION: 2 (0.568039 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.577091 seconds) Q = 0.55972
+END ITERATION: 3 (0.561582 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.573444 seconds) Q = 0.55972
+END ITERATION: 4 (0.565569 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.579238 seconds) Q = 0.55972
-5 iterations have finished in 2.89406 seconds.
-Best time is 0.573444 (5.73444e-05 per prediction, 17438.5 predictions/sec)
-Average time is 0.578812(5.78812e-05 per prediction)
+END ITERATION: 5 (0.577605 seconds) Q = 0.55972
+5 iterations have finished in 2.849 seconds.
+Best time is 0.561582 (5.61582e-05 per prediction, 17806.8 predictions/sec)
+Average time is 0.569801(5.69801e-05 per prediction)
 msrank: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.413727 seconds) Q = 0.55972
+END ITERATION: 1 (0.407007 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.413073 seconds) Q = 0.55972
+END ITERATION: 2 (0.404051 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.412256 seconds) Q = 0.55972
+END ITERATION: 3 (0.402964 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.413478 seconds) Q = 0.55972
+END ITERATION: 4 (0.40424 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.412296 seconds) Q = 0.55972
-5 iterations have finished in 2.06508 seconds.
-Best time is 0.412256 (4.12256e-05 per prediction, 24256.8 predictions/sec)
-Average time is 0.413016(4.13016e-05 per prediction)
+END ITERATION: 5 (0.407842 seconds) Q = 0.55972
+5 iterations have finished in 2.02635 seconds.
+Best time is 0.402964 (4.02964e-05 per prediction, 24816.1 predictions/sec)
+Average time is 0.40527(4.0527e-05 per prediction)
 msrank: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.151459 seconds) Q = 0.55972
+END ITERATION: 1 (0.11721 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.152128 seconds) Q = 0.55972
+END ITERATION: 2 (0.121242 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.151043 seconds) Q = 0.55972
+END ITERATION: 3 (0.12466 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.152178 seconds) Q = 0.55972
+END ITERATION: 4 (0.122321 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.151328 seconds) Q = 0.55972
-5 iterations have finished in 0.758385 seconds.
-Best time is 0.151043 (1.51043e-05 per prediction, 66206.3 predictions/sec)
-Average time is 0.151677(1.51677e-05 per prediction)
+END ITERATION: 5 (0.123955 seconds) Q = 0.55972
+5 iterations have finished in 0.609631 seconds.
+Best time is 0.11721 (1.1721e-05 per prediction, 85316.8 predictions/sec)
+Average time is 0.121926(1.21926e-05 per prediction)
 msrank: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.0490949 seconds) Q = 0.55972
+END ITERATION: 1 (0.051084 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.0493271 seconds) Q = 0.55972
+END ITERATION: 2 (0.0526209 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.0494249 seconds) Q = 0.55972
+END ITERATION: 3 (0.050684 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.0493069 seconds) Q = 0.55972
+END ITERATION: 4 (0.050571 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.049336 seconds) Q = 0.55972
-5 iterations have finished in 0.246703 seconds.
-Best time is 0.0490949 (4.90949e-06 per prediction, 203687 predictions/sec)
-Average time is 0.0493406(4.93406e-06 per prediction)
-Average delta: 2.10389e-11
-Average delta bucket: 2.10389e-11
+END ITERATION: 5 (0.0508811 seconds) Q = 0.55972
+5 iterations have finished in 0.256028 seconds.
+Best time is 0.050571 (5.0571e-06 per prediction, 197742 predictions/sec)
+Average time is 0.0512056(5.12056e-06 per prediction)
+Average delta: 2.10388e-11
+Average delta bucket: 2.10388e-11
 creditgermany: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000686169 seconds) Q = 0.310115
+END ITERATION: 1 (0.000695944 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000686169 seconds) Q = 0.310115
+END ITERATION: 2 (0.000696182 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.00068593 seconds) Q = 0.310115
+END ITERATION: 3 (0.000695944 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.00068903 seconds) Q = 0.310115
+END ITERATION: 4 (0.00069499 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000686169 seconds) Q = 0.310115
-5 iterations have finished in 0.00353193 seconds.
-Best time is 0.00068593 (6.8593e-06 per prediction, 145787 predictions/sec)
-Average time is 0.000706387(7.06387e-06 per prediction)
+END ITERATION: 5 (0.000699043 seconds) Q = 0.310115
+5 iterations have finished in 0.00357985 seconds.
+Best time is 0.00069499 (6.9499e-06 per prediction, 143887 predictions/sec)
+Average time is 0.000715971(7.15971e-06 per prediction)
 creditgermany: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000433922 seconds) Q = 0.310115
+END ITERATION: 1 (0.000429153 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000431776 seconds) Q = 0.310115
+END ITERATION: 2 (0.000427961 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000432014 seconds) Q = 0.310115
+END ITERATION: 3 (0.000427008 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000432968 seconds) Q = 0.310115
+END ITERATION: 4 (0.000427008 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000432968 seconds) Q = 0.310115
-5 iterations have finished in 0.00225496 seconds.
-Best time is 0.000431776 (4.31776e-06 per prediction, 231602 predictions/sec)
-Average time is 0.000450993(4.50993e-06 per prediction)
+END ITERATION: 5 (0.000427008 seconds) Q = 0.310115
+5 iterations have finished in 0.00223207 seconds.
+Best time is 0.000427008 (4.27008e-06 per prediction, 234188 predictions/sec)
+Average time is 0.000446415(4.46415e-06 per prediction)
 creditgermany: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.00110507 seconds) Q = 0.310115
+END ITERATION: 1 (0.00110602 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.00103688 seconds) Q = 0.310115
+END ITERATION: 2 (0.00105977 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.00102496 seconds) Q = 0.310115
+END ITERATION: 3 (0.00102901 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.00103879 seconds) Q = 0.310115
+END ITERATION: 4 (0.00102901 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.00102901 seconds) Q = 0.310115
-5 iterations have finished in 0.00532007 seconds.
-Best time is 0.00102496 (1.02496e-05 per prediction, 97564.6 predictions/sec)
-Average time is 0.00106401(1.06401e-05 per prediction)
+END ITERATION: 5 (0.00107718 seconds) Q = 0.310115
+5 iterations have finished in 0.00538397 seconds.
+Best time is 0.00102901 (1.02901e-05 per prediction, 97180.4 predictions/sec)
+Average time is 0.00107679(1.07679e-05 per prediction)
 creditgermany: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000687122 seconds) Q = 0.310115
+END ITERATION: 1 (0.000695944 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000684023 seconds) Q = 0.310115
+END ITERATION: 2 (0.000696182 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000684023 seconds) Q = 0.310115
+END ITERATION: 3 (0.00069499 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000684023 seconds) Q = 0.310115
+END ITERATION: 4 (0.000732899 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000706911 seconds) Q = 0.310115
-5 iterations have finished in 0.00353003 seconds.
-Best time is 0.000684023 (6.84023e-06 per prediction, 146194 predictions/sec)
-Average time is 0.000706005(7.06005e-06 per prediction)
+END ITERATION: 5 (0.00069499 seconds) Q = 0.310115
+5 iterations have finished in 0.00359607 seconds.
+Best time is 0.00069499 (6.9499e-06 per prediction, 143887 predictions/sec)
+Average time is 0.000719213(7.19213e-06 per prediction)
 creditgermany: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000311852 seconds) Q = 0.310115
+END ITERATION: 1 (0.000269175 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000311136 seconds) Q = 0.310115
+END ITERATION: 2 (0.000255108 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000310898 seconds) Q = 0.310115
+END ITERATION: 3 (0.000247955 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000311136 seconds) Q = 0.310115
+END ITERATION: 4 (0.000247955 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000320911 seconds) Q = 0.310115
-5 iterations have finished in 0.0016439 seconds.
-Best time is 0.000310898 (3.10898e-06 per prediction, 321649 predictions/sec)
-Average time is 0.000328779(3.28779e-06 per prediction)
+END ITERATION: 5 (0.000247002 seconds) Q = 0.310115
+5 iterations have finished in 0.00134897 seconds.
+Best time is 0.000247002 (2.47002e-06 per prediction, 404856 predictions/sec)
+Average time is 0.000269794(2.69794e-06 per prediction)
 creditgermany: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000128984 seconds) Q = 0.310115
+END ITERATION: 1 (0.000127077 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.00011611 seconds) Q = 0.310115
+END ITERATION: 2 (0.000117064 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000113964 seconds) Q = 0.310115
+END ITERATION: 3 (0.000117064 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000114918 seconds) Q = 0.310115
+END ITERATION: 4 (0.000116825 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000113964 seconds) Q = 0.310115
-5 iterations have finished in 0.000664234 seconds.
-Best time is 0.000113964 (1.13964e-06 per prediction, 877469 predictions/sec)
-Average time is 0.000132847(1.32847e-06 per prediction)
-Average delta: 2.10389e-11
-Average delta bucket: 2.10389e-11
+END ITERATION: 5 (0.000116825 seconds) Q = 0.310115
+5 iterations have finished in 0.000675201 seconds.
+Best time is 0.000116825 (1.16825e-06 per prediction, 855980 predictions/sec)
+Average time is 0.00013504(1.3504e-06 per prediction)
+Average delta: 2.10387e-11
+Average delta bucket: 2.10387e-11
 codrna: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.362128 seconds) Q = 0.193261
+END ITERATION: 1 (0.341415 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.350384 seconds) Q = 0.193261
+END ITERATION: 2 (0.345257 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.36084 seconds) Q = 0.193261
+END ITERATION: 3 (0.34319 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.353939 seconds) Q = 0.193261
+END ITERATION: 4 (0.341044 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.345835 seconds) Q = 0.193261
-5 iterations have finished in 1.77335 seconds.
-Best time is 0.345835 (7.07851e-06 per prediction, 141273 predictions/sec)
-Average time is 0.35467(7.25934e-06 per prediction)
+END ITERATION: 5 (0.361079 seconds) Q = 0.193261
+5 iterations have finished in 1.73219 seconds.
+Best time is 0.341044 (6.98045e-06 per prediction, 143257 predictions/sec)
+Average time is 0.346438(7.09085e-06 per prediction)
 codrna: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.205403 seconds) Q = 0.193261
+END ITERATION: 1 (0.220131 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.205519 seconds) Q = 0.193261
+END ITERATION: 2 (0.214449 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.211223 seconds) Q = 0.193261
+END ITERATION: 3 (0.21586 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.215054 seconds) Q = 0.193261
+END ITERATION: 4 (0.215602 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.217603 seconds) Q = 0.193261
-5 iterations have finished in 1.05503 seconds.
-Best time is 0.205403 (4.20416e-06 per prediction, 237859 predictions/sec)
-Average time is 0.211006(4.31884e-06 per prediction)
+END ITERATION: 5 (0.208044 seconds) Q = 0.193261
+5 iterations have finished in 1.07429 seconds.
+Best time is 0.208044 (4.25822e-06 per prediction, 234840 predictions/sec)
+Average time is 0.214858(4.39769e-06 per prediction)
 codrna: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.522237 seconds) Q = 0.193261
+END ITERATION: 1 (0.519827 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.510969 seconds) Q = 0.193261
+END ITERATION: 2 (0.511012 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.525617 seconds) Q = 0.193261
+END ITERATION: 3 (0.509566 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.541959 seconds) Q = 0.193261
+END ITERATION: 4 (0.512205 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.535139 seconds) Q = 0.193261
-5 iterations have finished in 2.63616 seconds.
-Best time is 0.510969 (1.04585e-05 per prediction, 95616.4 predictions/sec)
-Average time is 0.527231(1.07913e-05 per prediction)
+END ITERATION: 5 (0.50945 seconds) Q = 0.193261
+5 iterations have finished in 2.56229 seconds.
+Best time is 0.50945 (1.04274e-05 per prediction, 95901.4 predictions/sec)
+Average time is 0.512459(1.04889e-05 per prediction)
 codrna: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.359923 seconds) Q = 0.193261
+END ITERATION: 1 (0.355028 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.359473 seconds) Q = 0.193261
+END ITERATION: 2 (0.356596 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.358228 seconds) Q = 0.193261
+END ITERATION: 3 (0.351131 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.360576 seconds) Q = 0.193261
+END ITERATION: 4 (0.352164 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.359288 seconds) Q = 0.193261
-5 iterations have finished in 1.79772 seconds.
-Best time is 0.358228 (7.33217e-06 per prediction, 136385 predictions/sec)
-Average time is 0.359544(7.35911e-06 per prediction)
+END ITERATION: 5 (0.353287 seconds) Q = 0.193261
+5 iterations have finished in 1.76843 seconds.
+Best time is 0.351131 (7.18691e-06 per prediction, 139142 predictions/sec)
+Average time is 0.353687(7.23922e-06 per prediction)
 codrna: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.1549 seconds) Q = 0.193261
+END ITERATION: 1 (0.119561 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.154373 seconds) Q = 0.193261
+END ITERATION: 2 (0.120048 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.155492 seconds) Q = 0.193261
+END ITERATION: 3 (0.125288 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.154419 seconds) Q = 0.193261
+END ITERATION: 4 (0.129299 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.154678 seconds) Q = 0.193261
-5 iterations have finished in 0.7741 seconds.
-Best time is 0.154373 (3.15969e-06 per prediction, 316487 predictions/sec)
-Average time is 0.15482(3.16884e-06 per prediction)
+END ITERATION: 5 (0.127414 seconds) Q = 0.193261
+5 iterations have finished in 0.621798 seconds.
+Best time is 0.119561 (2.44716e-06 per prediction, 408637 predictions/sec)
+Average time is 0.12436(2.54538e-06 per prediction)
 codrna: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.046633 seconds) Q = 0.193261
+END ITERATION: 1 (0.0487969 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.0474391 seconds) Q = 0.193261
+END ITERATION: 2 (0.0494411 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.047447 seconds) Q = 0.193261
+END ITERATION: 3 (0.0506711 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.0474811 seconds) Q = 0.193261
+END ITERATION: 4 (0.050339 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.0479178 seconds) Q = 0.193261
-5 iterations have finished in 0.237095 seconds.
-Best time is 0.046633 (9.5448e-07 per prediction, 1.04769e+06 predictions/sec)
-Average time is 0.047419(9.70567e-07 per prediction)
+END ITERATION: 5 (0.050205 seconds) Q = 0.193261
+5 iterations have finished in 0.249638 seconds.
+Best time is 0.0487969 (9.9877e-07 per prediction, 1.00123e+06 predictions/sec)
+Average time is 0.0499276(1.02191e-06 per prediction)
 WITHOUT SSE:
 Average delta: 2.63793e-11
 Average delta bucket: 2.63793e-11
 msrank: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.435383 seconds) Q = 0.55972
+END ITERATION: 1 (0.437125 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.436308 seconds) Q = 0.55972
+END ITERATION: 2 (0.435796 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.435907 seconds) Q = 0.55972
+END ITERATION: 3 (0.43701 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.431612 seconds) Q = 0.55972
+END ITERATION: 4 (0.445561 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.445144 seconds) Q = 0.55972
-5 iterations have finished in 2.18459 seconds.
-Best time is 0.431612 (4.31612e-05 per prediction, 23169 predictions/sec)
-Average time is 0.436917(4.36917e-05 per prediction)
+END ITERATION: 5 (0.44022 seconds) Q = 0.55972
+5 iterations have finished in 2.19596 seconds.
+Best time is 0.435796 (4.35796e-05 per prediction, 22946.5 predictions/sec)
+Average time is 0.439191(4.39191e-05 per prediction)
 msrank: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.4162 seconds) Q = 0.55972
+END ITERATION: 1 (0.427043 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.417491 seconds) Q = 0.55972
+END ITERATION: 2 (0.422335 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.416817 seconds) Q = 0.55972
+END ITERATION: 3 (0.420978 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.415733 seconds) Q = 0.55972
+END ITERATION: 4 (0.420838 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.418045 seconds) Q = 0.55972
-5 iterations have finished in 2.0845 seconds.
-Best time is 0.415733 (4.15733e-05 per prediction, 24053.9 predictions/sec)
-Average time is 0.416901(4.16901e-05 per prediction)
+END ITERATION: 5 (0.419784 seconds) Q = 0.55972
+5 iterations have finished in 2.11123 seconds.
+Best time is 0.419784 (4.19784e-05 per prediction, 23821.8 predictions/sec)
+Average time is 0.422246(4.22246e-05 per prediction)
 msrank: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.606974 seconds) Q = 0.55972
+END ITERATION: 1 (0.616015 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.606289 seconds) Q = 0.55972
+END ITERATION: 2 (0.615987 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.571957 seconds) Q = 0.55972
+END ITERATION: 3 (0.613171 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.571413 seconds) Q = 0.55972
+END ITERATION: 4 (0.613632 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.575012 seconds) Q = 0.55972
-5 iterations have finished in 2.94688 seconds.
-Best time is 0.571413 (5.71413e-05 per prediction, 17500.5 predictions/sec)
-Average time is 0.589375(5.89375e-05 per prediction)
+END ITERATION: 5 (0.613457 seconds) Q = 0.55972
+5 iterations have finished in 3.0725 seconds.
+Best time is 0.613171 (6.13171e-05 per prediction, 16308.7 predictions/sec)
+Average time is 0.614501(6.14501e-05 per prediction)
 msrank: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.417835 seconds) Q = 0.55972
+END ITERATION: 1 (0.451378 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.419768 seconds) Q = 0.55972
+END ITERATION: 2 (0.438074 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.41202 seconds) Q = 0.55972
+END ITERATION: 3 (0.459245 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.413206 seconds) Q = 0.55972
+END ITERATION: 4 (0.438256 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.413672 seconds) Q = 0.55972
-5 iterations have finished in 2.07676 seconds.
-Best time is 0.41202 (4.1202e-05 per prediction, 24270.7 predictions/sec)
-Average time is 0.415352(4.15352e-05 per prediction)
+END ITERATION: 5 (0.438124 seconds) Q = 0.55972
+5 iterations have finished in 2.22533 seconds.
+Best time is 0.438074 (4.38074e-05 per prediction, 22827.2 predictions/sec)
+Average time is 0.445067(4.45067e-05 per prediction)
 msrank: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.214786 seconds) Q = 0.55972
+END ITERATION: 1 (0.211544 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.213462 seconds) Q = 0.55972
+END ITERATION: 2 (0.213447 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.21492 seconds) Q = 0.55972
+END ITERATION: 3 (0.211875 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.214092 seconds) Q = 0.55972
+END ITERATION: 4 (0.214645 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.213765 seconds) Q = 0.55972
-5 iterations have finished in 1.07126 seconds.
-Best time is 0.213462 (2.13462e-05 per prediction, 46846.7 predictions/sec)
-Average time is 0.214252(2.14252e-05 per prediction)
+END ITERATION: 5 (0.21364 seconds) Q = 0.55972
+5 iterations have finished in 1.06539 seconds.
+Best time is 0.211544 (2.11544e-05 per prediction, 47271.5 predictions/sec)
+Average time is 0.213079(2.13079e-05 per prediction)
 msrank: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.0496039 seconds) Q = 0.55972
+END ITERATION: 1 (0.0530488 seconds) Q = 0.55972
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.049485 seconds) Q = 0.55972
+END ITERATION: 2 (0.0517259 seconds) Q = 0.55972
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.0492392 seconds) Q = 0.55972
+END ITERATION: 3 (0.0522718 seconds) Q = 0.55972
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.049592 seconds) Q = 0.55972
+END ITERATION: 4 (0.0522461 seconds) Q = 0.55972
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.0501182 seconds) Q = 0.55972
-5 iterations have finished in 0.24825 seconds.
-Best time is 0.0492392 (4.92392e-06 per prediction, 203090 predictions/sec)
-Average time is 0.04965(4.965e-06 per prediction)
+END ITERATION: 5 (0.051846 seconds) Q = 0.55972
+5 iterations have finished in 0.261321 seconds.
+Best time is 0.0517259 (5.17259e-06 per prediction, 193327 predictions/sec)
+Average time is 0.0522642(5.22642e-06 per prediction)
 Average delta: 2.10388e-11
 Average delta bucket: 2.10388e-11
 creditgermany: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000693083 seconds) Q = 0.310115
+END ITERATION: 1 (0.000741005 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000692844 seconds) Q = 0.310115
+END ITERATION: 2 (0.000739098 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000692129 seconds) Q = 0.310115
+END ITERATION: 3 (0.000738859 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000690937 seconds) Q = 0.310115
+END ITERATION: 4 (0.000756979 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.00069809 seconds) Q = 0.310115
-5 iterations have finished in 0.00354791 seconds.
-Best time is 0.000690937 (6.90937e-06 per prediction, 144731 predictions/sec)
-Average time is 0.000709581(7.09581e-06 per prediction)
+END ITERATION: 5 (0.000739098 seconds) Q = 0.310115
+5 iterations have finished in 0.00380588 seconds.
+Best time is 0.000738859 (7.38859e-06 per prediction, 135344 predictions/sec)
+Average time is 0.000761175(7.61175e-06 per prediction)
 creditgermany: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000787973 seconds) Q = 0.310115
+END ITERATION: 1 (0.000825882 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000752926 seconds) Q = 0.310115
+END ITERATION: 2 (0.000831127 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000751972 seconds) Q = 0.310115
+END ITERATION: 3 (0.000807047 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000751972 seconds) Q = 0.310115
+END ITERATION: 4 (0.000807047 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000751972 seconds) Q = 0.310115
-5 iterations have finished in 0.00387788 seconds.
-Best time is 0.000751972 (7.51972e-06 per prediction, 132984 predictions/sec)
-Average time is 0.000775576(7.75576e-06 per prediction)
+END ITERATION: 5 (0.000841856 seconds) Q = 0.310115
+5 iterations have finished in 0.00420403 seconds.
+Best time is 0.000807047 (8.07047e-06 per prediction, 123909 predictions/sec)
+Average time is 0.000840807(8.40807e-06 per prediction)
 creditgermany: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.00112605 seconds) Q = 0.310115
+END ITERATION: 1 (0.00118804 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.00101113 seconds) Q = 0.310115
+END ITERATION: 2 (0.00109792 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.00101089 seconds) Q = 0.310115
+END ITERATION: 3 (0.00111008 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.00104403 seconds) Q = 0.310115
+END ITERATION: 4 (0.00110722 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.00101089 seconds) Q = 0.310115
-5 iterations have finished in 0.00528502 seconds.
-Best time is 0.00101089 (1.01089e-05 per prediction, 98922.3 predictions/sec)
-Average time is 0.001057(1.057e-05 per prediction)
+END ITERATION: 5 (0.00109005 seconds) Q = 0.310115
+5 iterations have finished in 0.00568509 seconds.
+Best time is 0.00109005 (1.09005e-05 per prediction, 91738.9 predictions/sec)
+Average time is 0.00113702(1.13702e-05 per prediction)
 creditgermany: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.00069499 seconds) Q = 0.310115
+END ITERATION: 1 (0.000739098 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000690937 seconds) Q = 0.310115
+END ITERATION: 2 (0.000738144 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000690937 seconds) Q = 0.310115
+END ITERATION: 3 (0.000746965 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000694036 seconds) Q = 0.310115
+END ITERATION: 4 (0.000717163 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000692129 seconds) Q = 0.310115
-5 iterations have finished in 0.0035429 seconds.
-Best time is 0.000690937 (6.90937e-06 per prediction, 144731 predictions/sec)
-Average time is 0.00070858(7.0858e-06 per prediction)
+END ITERATION: 5 (0.000735044 seconds) Q = 0.310115
+5 iterations have finished in 0.00376487 seconds.
+Best time is 0.000717163 (7.17163e-06 per prediction, 139438 predictions/sec)
+Average time is 0.000752974(7.52974e-06 per prediction)
 creditgermany: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000417948 seconds) Q = 0.310115
+END ITERATION: 1 (0.000406981 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000416994 seconds) Q = 0.310115
+END ITERATION: 2 (0.000406981 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.00041604 seconds) Q = 0.310115
+END ITERATION: 3 (0.000540018 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.00041604 seconds) Q = 0.310115
+END ITERATION: 4 (0.000519991 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.00041604 seconds) Q = 0.310115
-5 iterations have finished in 0.00216007 seconds.
-Best time is 0.00041604 (4.1604e-06 per prediction, 240361 predictions/sec)
-Average time is 0.000432014(4.32014e-06 per prediction)
+END ITERATION: 5 (0.000709057 seconds) Q = 0.310115
+5 iterations have finished in 0.00271797 seconds.
+Best time is 0.000406981 (4.06981e-06 per prediction, 245712 predictions/sec)
+Average time is 0.000543594(5.43594e-06 per prediction)
 creditgermany: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.000133038 seconds) Q = 0.310115
+END ITERATION: 1 (0.000253916 seconds) Q = 0.310115
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.000120163 seconds) Q = 0.310115
+END ITERATION: 2 (0.000166178 seconds) Q = 0.310115
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.000119925 seconds) Q = 0.310115
+END ITERATION: 3 (0.000146151 seconds) Q = 0.310115
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.000119925 seconds) Q = 0.310115
+END ITERATION: 4 (0.00014782 seconds) Q = 0.310115
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.000118971 seconds) Q = 0.310115
-5 iterations have finished in 0.000701189 seconds.
-Best time is 0.000118971 (1.18971e-06 per prediction, 840542 predictions/sec)
-Average time is 0.000140238(1.40238e-06 per prediction)
+END ITERATION: 5 (0.000185966 seconds) Q = 0.310115
+5 iterations have finished in 0.00101614 seconds.
+Best time is 0.000146151 (1.46151e-06 per prediction, 684226 predictions/sec)
+Average time is 0.000203228(2.03228e-06 per prediction)
 Average delta: 2.10389e-11
 Average delta bucket: 2.10389e-11
 codrna: static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.350996 seconds) Q = 0.193261
+END ITERATION: 1 (0.366431 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.348648 seconds) Q = 0.193261
+END ITERATION: 2 (0.364444 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.358113 seconds) Q = 0.193261
+END ITERATION: 3 (0.364692 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.364447 seconds) Q = 0.193261
+END ITERATION: 4 (0.367093 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.359541 seconds) Q = 0.193261
-5 iterations have finished in 1.78196 seconds.
-Best time is 0.348648 (7.13609e-06 per prediction, 140133 predictions/sec)
-Average time is 0.356393(7.29461e-06 per prediction)
+END ITERATION: 5 (0.363886 seconds) Q = 0.193261
+5 iterations have finished in 1.82675 seconds.
+Best time is 0.363886 (7.44798e-06 per prediction, 134265 predictions/sec)
+Average time is 0.365351(7.47796e-06 per prediction)
 codrna: this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.370067 seconds) Q = 0.193261
+END ITERATION: 1 (0.38465 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.371527 seconds) Q = 0.193261
+END ITERATION: 2 (0.385801 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.374838 seconds) Q = 0.193261
+END ITERATION: 3 (0.397634 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.391419 seconds) Q = 0.193261
+END ITERATION: 4 (0.412433 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.388968 seconds) Q = 0.193261
-5 iterations have finished in 1.89704 seconds.
-Best time is 0.370067 (7.5745e-06 per prediction, 132022 predictions/sec)
-Average time is 0.379408(7.76568e-06 per prediction)
+END ITERATION: 5 (0.40702 seconds) Q = 0.193261
+5 iterations have finished in 1.98776 seconds.
+Best time is 0.38465 (7.87298e-06 per prediction, 127017 predictions/sec)
+Average time is 0.397552(8.13706e-06 per prediction)
 codrna: Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.528123 seconds) Q = 0.193261
+END ITERATION: 1 (0.550863 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.524235 seconds) Q = 0.193261
+END ITERATION: 2 (0.550282 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.525974 seconds) Q = 0.193261
+END ITERATION: 3 (0.551896 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.52617 seconds) Q = 0.193261
+END ITERATION: 4 (0.549507 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.528178 seconds) Q = 0.193261
-5 iterations have finished in 2.63289 seconds.
-Best time is 0.524235 (1.073e-05 per prediction, 93196.8 predictions/sec)
-Average time is 0.526579(1.0778e-05 per prediction)
+END ITERATION: 5 (0.551532 seconds) Q = 0.193261
+5 iterations have finished in 2.75432 seconds.
+Best time is 0.549507 (1.12473e-05 per prediction, 88910.6 predictions/sec)
+Average time is 0.550864(1.1275e-05 per prediction)
 codrna: bucket static compiled model
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.357257 seconds) Q = 0.193261
+END ITERATION: 1 (0.378785 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.362847 seconds) Q = 0.193261
+END ITERATION: 2 (0.375719 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.363093 seconds) Q = 0.193261
+END ITERATION: 3 (0.375365 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.360542 seconds) Q = 0.193261
+END ITERATION: 4 (0.376792 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.364286 seconds) Q = 0.193261
-5 iterations have finished in 1.80825 seconds.
-Best time is 0.357257 (7.3123e-06 per prediction, 136756 predictions/sec)
-Average time is 0.361649(7.4022e-06 per prediction)
+END ITERATION: 5 (0.377143 seconds) Q = 0.193261
+5 iterations have finished in 1.88404 seconds.
+Best time is 0.375365 (7.68293e-06 per prediction, 130159 predictions/sec)
+Average time is 0.376807(7.71245e-06 per prediction)
 codrna: bucket this library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.209045 seconds) Q = 0.193261
+END ITERATION: 1 (0.209936 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.210001 seconds) Q = 0.193261
+END ITERATION: 2 (0.212344 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.210777 seconds) Q = 0.193261
+END ITERATION: 3 (0.214013 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.210668 seconds) Q = 0.193261
+END ITERATION: 4 (0.212135 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.211464 seconds) Q = 0.193261
-5 iterations have finished in 1.05219 seconds.
-Best time is 0.209045 (4.27871e-06 per prediction, 233715 predictions/sec)
-Average time is 0.210437(4.30721e-06 per prediction)
+END ITERATION: 5 (0.214682 seconds) Q = 0.193261
+5 iterations have finished in 1.06334 seconds.
+Best time is 0.209936 (4.29695e-06 per prediction, 232723 predictions/sec)
+Average time is 0.212669(4.35288e-06 per prediction)
 codrna: bucket Yandex library
 BEGIN ITERATION: 1
-END ITERATION: 1 (0.0464559 seconds) Q = 0.193261
+END ITERATION: 1 (0.0499539 seconds) Q = 0.193261
 BEGIN ITERATION: 2
-END ITERATION: 2 (0.0473311 seconds) Q = 0.193261
+END ITERATION: 2 (0.0498059 seconds) Q = 0.193261
 BEGIN ITERATION: 3
-END ITERATION: 3 (0.0477271 seconds) Q = 0.193261
+END ITERATION: 3 (0.0498271 seconds) Q = 0.193261
 BEGIN ITERATION: 4
-END ITERATION: 4 (0.0486498 seconds) Q = 0.193261
+END ITERATION: 4 (0.0498381 seconds) Q = 0.193261
 BEGIN ITERATION: 5
-END ITERATION: 5 (0.0478261 seconds) Q = 0.193261
-5 iterations have finished in 0.238179 seconds.
-Best time is 0.0464559 (9.50854e-07 per prediction, 1.05169e+06 predictions/sec)
-Average time is 0.0476358(9.75004e-07 per prediction)
+END ITERATION: 5 (0.05003 seconds) Q = 0.193261
+5 iterations have finished in 0.249596 seconds.
+Best time is 0.0498059 (1.01942e-06 per prediction, 980948 predictions/sec)
+Average time is 0.0499192(1.02174e-06 per prediction)

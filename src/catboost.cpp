@@ -133,6 +133,33 @@ namespace catboost {
             return res;
         }
 
+        template <size_t N>
+        void predict_n(const float* const* f, double *y) const noexcept {
+            for (size_t i = 0; i < N; ++i)
+                y[i] = 0.0;
+            std::array<uint32_t, N> idx;
+            idx.fill(0);
+
+            size_t off = 0;
+            uint32_t one = 1;
+
+            for (const auto& split : splits) {
+                for (size_t i = 0; i < N; ++i)
+                    idx[i] |= split.apply(f[i], one);
+                one <<= 1;
+                if (split.count) {
+                    for (size_t i = 0; i < N; ++i) {
+                        y[i] += values[off + idx[i]];
+                    }
+
+                    off += split.count;
+                    one = 1;
+
+                    idx.fill(0);
+                }
+            }
+        }
+
         void predict4(const float* f0, const float* f1, const float* f2, const float* f3, double *y) const noexcept {
             y[0] = 0.0;
             y[1] = 0.0;
@@ -165,6 +192,7 @@ namespace catboost {
                 }
             }
         }
+
     };
 
 #else // NOSSE
@@ -287,7 +315,7 @@ namespace catboost {
         Bin<16> splits;
         std::vector<double> values;
 
-        void add_tree4(const JsonTree& t0, const JsonTree& t1, const JsonTree& t2, const JsonTree t3) {
+        void add_tree4(const JsonTree& t0, const JsonTree& t1, const JsonTree& t2, const JsonTree& t3) {
             // Add meta info:
             SplitInfo info;
             info.depth = t0.depth();
@@ -353,8 +381,12 @@ namespace catboost {
             }
 
             // Now lets combine them:
-            for (const auto& bucket : tmp) {
-                const auto& vec = bucket.second;
+            for (auto& bucket : tmp) {
+                auto& vec = bucket.second;
+                std::sort(vec.begin(), vec.end(), [] (const JsonTree& t1, const JsonTree& t2) {
+                    return t1.indexes < t2.indexes;
+                });
+
                 size_t i = 0;
 
                 for (; i + 3 < vec.size(); i += 4) {
@@ -443,6 +475,112 @@ namespace catboost {
             }
 
             return res;
+        }
+
+        template <size_t N>
+        void predict_n(const float* const* f, double *y) const noexcept {
+            for (size_t i = 0; i < N; ++i) {
+                y[i] = 0.0;
+            }
+
+            auto iter = splits.iter();
+            uint32_t offset = 0;
+
+            for (const SplitInfo* info = iter.read<SplitInfo>(); info != nullptr; info = iter.read<SplitInfo>()) {
+                switch (info->type) {
+                case SPLIT_SIMPLE:
+                { // This situation is impossible, but it could be used for debugging sometime.
+                    uint32_t one = 1;
+                    std::array<uint32_t, N> idx;
+                    idx.fill(0);
+                    for (uint32_t i = 0; i < info->depth; ++i) {
+                        const Split* split = iter.read<Split>();
+                        for (size_t j = 0; j < N; ++j) {
+                            idx[j] |= split->apply(f[j], one);
+                        }
+                        one <<= 1;
+                    }
+
+                    for (size_t j = 0; j < N; ++j) {
+                        y[j] += values[offset + idx[j]];
+                    }
+                    offset += static_cast<uint32_t>(1) << info->depth;
+                }
+                break;
+
+                case SPLIT4_SINGLE_TREE:
+                {
+                    uint32_t i = 0;
+                    Vec4i one4{ 8, 4, 2, 1 };
+                    std::array<Vec4i, N> idx4;
+
+                    for (; i + 4 <= info->depth; i += 4) {
+                        const Split4* split = iter.read<Split4>();
+                        for (size_t j = 0; j < N; ++j) {
+                            idx4[j] |= split->apply(f[j], one4);
+                        }
+                        one4 <<= 4;
+                    }
+
+                    std::array<uint32_t, N> idx;
+                    for (size_t j = 0; j < N; ++j)
+                        idx[j] = idx4[j].sum();
+                    uint32_t one = static_cast<uint32_t>(1) << i;
+
+                    for (; i < info->depth; ++i) {
+                        const Split* split = iter.read<Split>();
+                        for (size_t j = 0; j < N; ++j) {
+                            idx[j] |= split->apply(f[j], one);
+                        }
+                        one <<= 1;
+                    }
+
+                    for (size_t j = 0; j < N; ++j) {
+                        y[j] += values[offset + idx[j]];
+                    }
+                    offset += static_cast<uint32_t>(1) << info->depth;
+                }
+                break;
+
+                case SPLIT4_MULTI_TREE:
+                {
+                    std::array<Vec4i, N> idx;
+                    Vec4i one{1, 1, 1, 1};
+
+                    for (uint32_t i = 0; i < info->depth; ++i) {
+                        const Split4* split = iter.read<Split4>();
+                        for (size_t j = 0; j < N; ++j) {
+                            idx[j] |= split->apply(f[j], one);
+                        }
+                        one <<= 1;
+                    }
+
+                    alignas(16) uint32_t index[4 * N];
+
+                    for (size_t j = 0; j < N; ++j) {
+                        idx[j].store(index + j * 4);
+                    }
+
+                    for (size_t j = 0; j < N; ++j) {
+                        y[j] += values[offset + index[j * 4 + 3]];
+                    }
+                    offset += static_cast<uint32_t>(1) << info->depth;
+                    for (size_t j = 0; j < N; ++j) {
+                        y[j] += values[offset + index[j * 4 + 2]];
+                    }
+                    offset += static_cast<uint32_t>(1) << info->depth;
+                    for (size_t j = 0; j < N; ++j) {
+                        y[j] += values[offset + index[j * 4 + 1]];
+                    }
+                    offset += static_cast<uint32_t>(1) << info->depth;
+                    for (size_t j = 0; j < N; ++j) {
+                        y[j] += values[offset + index[j * 4]];
+                    }
+                    offset += static_cast<uint32_t>(1) << info->depth;
+                }
+                break;
+                } // switch (info->type)
+            }
         }
 
         void predict4(const float* f0, const float* f1, const float* f2, const float* f3, double *y) const noexcept {
@@ -633,7 +771,50 @@ namespace catboost {
         }
 
         size_t i = 0;
-        for (i = 0; i + 4 <= size; i += 4) {
+
+        for (; i + 8 <= size; i += 8) {
+            impl_->predict_n<8>(features + i, y + i);
+            for (size_t j = 0; j < 8; ++j)
+                y[i + j] = scale_ * y[i + j] + bias_;
+        }
+
+        size_t rest = size - i;
+        switch (rest) {
+            case 7: impl_->predict_n<7>(features + i, y + i); break;
+            case 6: impl_->predict_n<6>(features + i, y + i); break;
+            case 5: impl_->predict_n<5>(features + i, y + i); break;
+            case 4: impl_->predict_n<4>(features + i, y + i); break;
+            case 3: impl_->predict_n<3>(features + i, y + i); break;
+            case 2: impl_->predict_n<2>(features + i, y + i); break;
+            case 1: impl_->predict_n<1>(features + i, y + i); break;
+        }
+
+        for (; i < size; ++i)
+            y[i] = scale_ * y[i] + bias_;
+
+        return;
+
+#if 0
+        for (; i + 4 <= size; i += 4) {
+            std::array<const float*, 4> f;
+            for (size_t j = 0; j < 4; ++j)
+                f[j] = features[i + j];
+            impl_->predict_n(f, y + i);
+            for (size_t j = 0; j < 4; ++j)
+                y[i + j] = scale_ * y[i + j] + bias_;
+        }
+
+        for (; i + 2 <= size; i += 2) {
+            std::array<const float*, 2> f;
+            for (size_t j = 0; j < 2; ++j)
+                f[j] = features[i + j];
+            impl_->predict_n(f, y + i);
+            for (size_t j = 0; j < 2; ++j)
+                y[i + j] = scale_ * y[i + j] + bias_;
+        }
+#endif
+
+        for (; i + 4 <= size; i += 4) {
             impl_->predict4(features[i], features[i + 1], features[i + 2], features[i + 3], y + i);
             y[i] = scale_ * y[i] + bias_;
             y[i + 1] = scale_ * y[i + 1] + bias_;
