@@ -1,0 +1,12 @@
+---
+Language:        Cpp
+BasedOnStyle:  Google
+ColumnLimit:     120
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+IndentWidth:     4
+SpacesBeforeTrailingComments: 1
+TabWidth:        4
+AccessModifierOffset: -4
+...
+
