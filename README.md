@@ -29,7 +29,7 @@ Project could be built using CMake.
 
 Performance
 ===========
-As could be seen from perf.txt this library is faster than Yandex implementation on single predictions but ~3 times slower on buckets. I'll try to be even faster, but not now.
+As could be seen from perf.txt this library is faster than Yandex implementation on single predictions but ~3 times slower on buckets. I'll try to make it even faster later.
 
 How it works
 ============
@@ -40,7 +40,7 @@ I've tried to use AVX2 instructions and found out that performance is the same. 
 Limitations
 ===========
 Categorical features and multitarget models are not supported now. In the future releases I'm planning to
-add this functional.
+add this functionality.
 
 Currently library only supports SMD instructions on platforms other than x86-64. ARM v6+ support is planned using sse2neon header.
 
