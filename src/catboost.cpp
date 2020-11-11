@@ -8,6 +8,7 @@ namespace catboost {
 
     namespace {
 
+        // Json respresentation of decision tree from CatBoost model
         struct JsonTree {
             std::vector<double> values;
             std::vector<float> borders;
@@ -36,17 +37,20 @@ namespace catboost {
                 }
             }
 
+            // Get tree depth
             size_t depth() const {
                 return borders.size();
             }
         };
 
+        // Model from JSON C++ representation.
         struct JsonModel {
             size_t feature_count = 0;
             std::vector<JsonTree> trees;
             double bias = 0.0;
             double scale = 1.0;
 
+            // Load model from JSON
             void load(const nlohmann::json& model) {
                 feature_count = model.at("features_info").at("float_features").size();
                 const auto& ts = model.at("oblivious_trees");
@@ -78,6 +82,7 @@ namespace catboost {
 #ifdef NOSSE
 
     struct Model::Impl {
+        // Split represents one level of a decision tree.
         struct Split {
             float border = 0.0f;
             uint32_t index = 0;
@@ -90,6 +95,7 @@ namespace catboost {
             {
             }
 
+            // Apply tree to features and return one if feature at corresponding index is greater than border.
             uint32_t apply(const float* f, uint32_t one) const {
                 if (f[index] > border)
                     return one;
@@ -118,6 +124,7 @@ namespace catboost {
             }
         }
 
+        // Single prediction
         double predict(const float* f) const noexcept {
             double res = 0.0;
             uint32_t idx = 0;
@@ -138,6 +145,7 @@ namespace catboost {
             return res;
         }
 
+        // Multiple predictions.
         template <size_t N>
         void predict_n(const float* const* f, double *y) const noexcept {
             for (size_t i = 0; i < N; ++i)
@@ -188,6 +196,7 @@ namespace catboost {
             Bin&operator=(const Bin&) = delete;
             Bin&operator=(Bin&&) = delete;
 
+            // Write binary data to array.
             void write(const void* p, size_t sz) {
                 size_t actual_size = aligned_size(sz);
                 size_t delta = actual_size - sz;
@@ -197,11 +206,13 @@ namespace catboost {
                     data_.push_back(0);
             }
 
+            // Write plain old data to file.
             template <typename T>
             void write(const T* x) {
                 write(reinterpret_cast<const void*>(x), sizeof(T));
             }
 
+            // Data iterator
             class Iterator {
                 const unsigned char* pos = nullptr;
                 const unsigned char* end = nullptr;
@@ -219,6 +230,7 @@ namespace catboost {
                 Iterator& operator=(Iterator&&) = default;
                 ~Iterator() = default;
 
+                // Read sz bytes of data
                 const void* read(size_t sz) {
                     size_t actual_size = aligned_size(sz);
 
@@ -232,12 +244,14 @@ namespace catboost {
                     return res;
                 }
 
+                // Get pointer to a structure of type T and increase position.
                 template <typename T>
                 const T* read() {
                     return reinterpret_cast<const T*>(read(sizeof(T)));
                 }
             };
 
+            // Get iterator at the beginning of data.
             Iterator iter() const {
                 return Iterator(data_.data(), data_.data() + data_.size());
             }
@@ -252,11 +266,13 @@ namespace catboost {
             SPLIT4_SINGLE_TREE,
         };
 
+        // Information about following tree
         struct SplitInfo {
             uint32_t depth = 0;
             SplitType type = SPLIT_SIMPLE;
         };
 
+        // Simple split.
         struct Split {
             float border = 0.0f;
             uint32_t index = 0;
@@ -274,6 +290,7 @@ namespace catboost {
             }
         };
 
+        // Split that applies tree to 4 values in parallel
         struct Split4 {
             Vec4f border{};
             uint32_t index[4] = { 0, 0, 0, 0 };
@@ -287,6 +304,7 @@ namespace catboost {
         Bin<16> splits;
         std::vector<double> values;
 
+        // Add 4 trees to be processed in parallel
         void add_tree4(const JsonTree& t0, const JsonTree& t1, const JsonTree& t2, const JsonTree& t3) {
             // Add meta info:
             SplitInfo info;
@@ -312,6 +330,7 @@ namespace catboost {
             values.insert(values.end(), t3.values.begin(), t3.values.end());
         }
 
+        // Add single tree to splits.
         void add_tree(const JsonTree& t) {
             // Add meta info:
             SplitInfo info;
@@ -371,6 +390,7 @@ namespace catboost {
 
         }
 
+        // Single prediction
         double predict(const float* f) const noexcept {
             auto iter = splits.iter();
             double res = 0.0;
@@ -449,6 +469,7 @@ namespace catboost {
             return res;
         }
 
+        // Multiple predictions:
         template <size_t N>
         void predict_n(const float* const* f, double *y) const noexcept {
             for (size_t i = 0; i < N; ++i) {
@@ -621,6 +642,7 @@ namespace catboost {
         }
 
         size_t rest = size - i;
+        // We still can dispatch them as a group:
         switch (rest) {
             case 7: impl_->predict_n<7>(features + i, y + i); break;
             case 6: impl_->predict_n<6>(features + i, y + i); break;
