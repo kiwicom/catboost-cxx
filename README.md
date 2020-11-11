@@ -4,7 +4,7 @@ CatBoost applier library
 This library allows to apply Yandex Catboost models without adding huge applier library dependency.
 Models should be saved in JSON format.
 
-The main purpose of the libray is to have possibility to apply models with reasonable performance and so
+The main purpose of the library is to have possibility to apply models with reasonable performance and so
 we are using SSE4.1 for acceleration of the code. For platforms without SSE instructions library has plain
 C++ implementation.
 
@@ -25,6 +25,27 @@ void predict(const std::vector<float>& x) {
 ```
 
 Project could be built using CMake.
+
+Performance
+===========
+As could be seen from perf.txt this library is faster than Yandex implementation on single predictions but ~3 times slower on buckets. I'll try to be even faster, but not now.
+
+How it works
+============
+My approach is very simple: I group trees by 4 and then apply model in parallel using SSE instructions. For single trees it is done using multilevel apply if depth is greater than 3. To do this I group trees by depth and write them into specially aligned binary array.
+
+I've tried to use AVX2 instructions and found out that performance is the same. So I decided to not merge these changes because becomes more complex without any improvement.
+
+Limitations
+===========
+Categorical features and multitarget models are not supported now. In the future releases I'm planning to
+add this functional.
+
+Currently library only supports SMD instructions on platforms other than x86-64. ARM v6+ support is planned using sse2neon header.
+
+Windows version is not tested yet, but hopefully should work.
+
+Binary models from CatBoost library could not be loaded. This problem is more complex than it looks at first glance. Binary form of the model is prepared for fast applier and I'd need to convert it. Moreover I don't want to have protobuf dependency.
 
 Testing
 =======
