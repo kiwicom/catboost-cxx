@@ -5,8 +5,8 @@ CatBoost applier library
 This library allows to apply Yandex Catboost models without adding huge applier library dependency.
 Models should be saved in JSON format.
 
-The main purpose of the library is to have possibility to apply models with reasonable performance and so
-we are using SSE4.1 for acceleration of the code. For platforms without SSE instructions library has plain
+The main purpose of the library is to have the possibility to apply models with reasonable performance and so
+we are using SSE4.1 for the acceleration of the code. For platforms without SSE instructions library has plain
 C++ implementation.
 
 This library is being used in Kiwi.com for runtime predictions.
@@ -25,7 +25,7 @@ void predict(const std::vector<float>& x) {
 }
 ```
 
-Project could be built using CMake.
+The project could be built using CMake.
 
 Performance
 ===========
@@ -33,24 +33,24 @@ As could be seen from perf.txt this library is faster than Yandex implementation
 
 How it works
 ============
-My approach is very simple: I group trees by 4 and then apply model in parallel using SSE instructions. For single trees it is done using multilevel apply if depth is greater than 3. To do this I group trees by depth and write them into specially aligned binary array.
+My approach is very simple: I group trees by 4 and then apply the model in parallel using SSE instructions. For single trees, it is done using multilevel apply if the depth is greater than 3. To do this I group trees by the depth and write them into a specially aligned binary array.
 
 I've tried to use AVX2 instructions and found out that performance is the same. So I decided to not merge these changes because becomes more complex without any improvement.
 
 Limitations
 ===========
-Categorical features and multitarget models are not supported now. In the future releases I'm planning to
+Categorical features and multitarget models are not supported now. In future releases, I'm planning to
 add this functionality.
 
 Currently library only supports SMD instructions on platforms other than x86-64. ARM v6+ support is planned using sse2neon header.
 
-Windows version is not tested yet, but hopefully should work.
+Windows version is not tested yet but hopefully should work.
 
-Binary models from CatBoost library could not be loaded. This problem is more complex than it looks at first glance. Binary form of the model is prepared for fast applier and I'd need to convert it. Moreover I don't want to have protobuf dependency.
+Binary models from CatBoost library could not be loaded. This problem is more complex than it looks at first glance. The binary form of the model is prepared for fast applier and I'd need to convert it. Moreover, I don't want to have protobuf dependency.
 
 Testing
 =======
-Library contains unit tests and performance test.
+The library contains unit tests and performance tests.
 ``` bash
 make test # build and run tests
 make perf # build and run performance tests
@@ -58,8 +58,8 @@ make perf # build and run performance tests
 
 Performance results could be found in perftest/perf.txt
 
-If you want to add new testing dataset for performance testing you can use `perftest/train_models/train_models.py` script.
-At this time we are using following datasets for testing:
+If you want to add a new testing dataset for performance testing you can use `perftest/train_models/train_models.py` script.
+At this time we are using the following datasets for testing:
  1. MSRank dataset
  2. Credit Germany dataset
  3. Normalized form of codrna

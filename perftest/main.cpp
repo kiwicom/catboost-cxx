@@ -1,23 +1,21 @@
+#include <unistd.h>
+
+#include <cstring>
+#include <functional>
+#include <set>
+
 #include "catboost.hpp"
-#include "dll.hpp"
-
-#include "perf_test.hpp"
-
-#include "msrank.cpp"
 #include "codrna.cpp"
 #include "creditgermany.cpp"
-
-#include <set>
-#include <cstring>
-#include <unistd.h>
-#include <functional>
+#include "dll.hpp"
+#include "msrank.cpp"
+#include "perf_test.hpp"
 
 #ifdef WIN32
-# define CATBOOST_LIBRARY "build/libcatboostmodel.dll"
+#define CATBOOST_LIBRARY "build/libcatboostmodel.dll"
 #else
-# define CATBOOST_LIBRARY "build/libcatboostmodel.so"
+#define CATBOOST_LIBRARY "build/libcatboostmodel.so"
 #endif
-
 
 typedef void ModelCalcerHandle;
 
@@ -31,7 +29,8 @@ static struct CatboostAPIInitializer {
             ModelCalcerDelete = dll_->sym("ModelCalcerDelete");
             LoadFullModelFromFile = dll_->sym("LoadFullModelFromFile");
 
-            if (!CalcModelPredictionSingle || !ModelCalcerCreate || !ModelCalcerDelete || !LoadFullModelFromFile || !CalcModelPrediction) {
+            if (!CalcModelPredictionSingle || !ModelCalcerCreate || !ModelCalcerDelete || !LoadFullModelFromFile ||
+                !CalcModelPrediction) {
                 std::cerr << "Can not load catboost libray!" << std::endl;
                 dll_.reset(nullptr);
             }
@@ -42,44 +41,31 @@ static struct CatboostAPIInitializer {
 
     std::unique_ptr<DLL> dll_;
 
-    bool (*CalcModelPredictionSingle)(
-            ModelCalcerHandle* modelHandle,
-            const float* floatFeatures, size_t floatFeaturesSize,
-            const char** catFeatures, size_t catFeaturesSize,
-            double* result, size_t resultSize) = nullptr;
+    bool (*CalcModelPredictionSingle)(ModelCalcerHandle* modelHandle, const float* floatFeatures,
+                                      size_t floatFeaturesSize, const char** catFeatures, size_t catFeaturesSize,
+                                      double* result, size_t resultSize) = nullptr;
     ModelCalcerHandle* (*ModelCalcerCreate)() = nullptr;
     void (*ModelCalcerDelete)(ModelCalcerHandle* modelHandle) = nullptr;
     bool (*LoadFullModelFromFile)(ModelCalcerHandle*, const char*) = nullptr;
-    bool (*CalcModelPrediction)(
-    ModelCalcerHandle* modelHandle,
-    size_t docCount,
-    const float** floatFeatures, size_t floatFeaturesSize,
-    const char*** catFeatures, size_t catFeaturesSize,
-    double* result, size_t resultSize);
+    bool (*CalcModelPrediction)(ModelCalcerHandle* modelHandle, size_t docCount, const float** floatFeatures,
+                                size_t floatFeaturesSize, const char*** catFeatures, size_t catFeaturesSize,
+                                double* result, size_t resultSize);
 
-    operator bool () const {
-        return dll_.get() != nullptr;
-    }
+    operator bool() const { return dll_.get() != nullptr; }
 } CatboostAPI;
 
 struct JsonModel {
     catboost::Model model_;
 
-    explicit JsonModel(const std::string& filename) {
-        model_.load(filename);
-    }
+    explicit JsonModel(const std::string& filename) { model_.load(filename); }
 
-    double predict(const std::vector<float>& x) const {
-        return model_.apply(x);
-    }
+    double predict(const std::vector<float>& x) const { return model_.apply(x); }
 
-    void predict(const std::vector<std::vector<float>>& x, std::vector<double>& y) const {
-        model_.apply(x, y);
-    }
+    void predict(const std::vector<std::vector<float>>& x, std::vector<double>& y) const { model_.apply(x, y); }
 };
 
 struct YaModel {
-    ModelCalcerHandle *handle_ = nullptr;
+    ModelCalcerHandle* handle_ = nullptr;
 
     YaModel(const std::string& filename) {
         if (!CatboostAPI) {
@@ -104,10 +90,9 @@ struct YaModel {
 
     double predict(const std::vector<float>& x) const {
         double res;
-        if (!CatboostAPI.CalcModelPredictionSingle(handle_,
-                    x.data(), x.size(), // floatFeatures
-                    nullptr, 0, // catFeatures
-                    &res, 1)) {
+        if (!CatboostAPI.CalcModelPredictionSingle(handle_, x.data(), x.size(), // floatFeatures
+                                                   nullptr, 0,                  // catFeatures
+                                                   &res, 1)) {
             throw std::runtime_error("Prediction failed");
         }
 
@@ -123,10 +108,7 @@ struct YaModel {
             for (size_t j = 0; j < 32; ++j) {
                 buf[j] = x[i + j].data();
             }
-            if (!CatboostAPI.CalcModelPrediction(handle_, 32,
-                        buf, count,
-                        nullptr, 0,
-                        y.data() + i, 32)) {
+            if (!CatboostAPI.CalcModelPrediction(handle_, 32, buf, count, nullptr, 0, y.data() + i, 32)) {
                 throw std::runtime_error("Prediction failed");
             }
         }
@@ -136,17 +118,12 @@ struct YaModel {
             buf[cnt] = x[i + cnt].data();
         }
 
-        if (!CatboostAPI.CalcModelPrediction(handle_, cnt,
-                    buf, count,
-                    nullptr, 0,
-                    y.data() + i, cnt)) {
+        if (!CatboostAPI.CalcModelPrediction(handle_, cnt, buf, count, nullptr, 0, y.data() + i, cnt)) {
             throw std::runtime_error("Prediction failed");
         }
     }
 
-    operator bool () const {
-        return handle_ != nullptr;
-    }
+    operator bool() const { return handle_ != nullptr; }
 };
 
 template <typename SModel>
@@ -161,10 +138,7 @@ struct SingleTest {
     bool do_not_run_compare = false;
 
     SingleTest(const std::string& base_name)
-        : name{base_name}
-        , jmodel{base_name + ".json"}
-        , ymodel{base_name + ".cbm"}
-    {
+        : name{base_name}, jmodel{base_name + ".json"}, ymodel{base_name + ".cbm"} {
         data.load_tsv(base_name + "_test.tsv");
     }
 
@@ -266,10 +240,7 @@ class CmdLine {
     std::string description;
 
 public:
-    explicit CmdLine(const std::string& descr)
-        : description(descr)
-    {
-    }
+    explicit CmdLine(const std::string& descr) : description(descr) {}
 
     void print_usage(const std::string& prog) const {
         std::cout << "Usage:" << std::endl;
@@ -287,12 +258,10 @@ public:
         std::cout << "Arguments:" << std::endl;
         for (const auto& msg : args) {
             for (size_t i = 0; i < msg.names.size(); ++i) {
-                if (i)
-                    std::cout << ", ";
+                if (i) std::cout << ", ";
                 std::cout << msg.names[i];
             }
-            if (!msg.flag)
-                std::cout << " <value>";
+            if (!msg.flag) std::cout << " <value>";
             std::cout << std::endl;
             std::cout << "    " << msg.help << std::endl;
         }
@@ -303,9 +272,7 @@ public:
         args.back().names.push_back(f);
         args.back().flag = true;
         args.back().help = help;
-        args.back().action = [&var] (const char *v) {
-            var = (v[0] == '1');
-        };
+        args.back().action = [&var](const char* v) { var = (v[0] == '1'); };
 
         return *this;
     }
@@ -326,9 +293,7 @@ public:
         args.back().names.push_back(f);
         args.back().flag = false;
         args.back().help = help;
-        args.back().action = [&var] (const char *v) {
-            var = v;
-        };
+        args.back().action = [&var](const char* v) { var = v; };
 
         return *this;
     }
@@ -369,8 +334,7 @@ public:
                     ++argidx;
                 }
 
-                if (matched)
-                    break;
+                if (matched) break;
             }
 
             if (!matched) {
@@ -382,7 +346,6 @@ public:
 
         return true;
     }
-
 };
 
 int main(int argc, const char* argv[]) {
@@ -393,11 +356,12 @@ int main(int argc, const char* argv[]) {
     bool do_not_run_compare = false;
 
     CmdLine args{"run performance tests."};
-    args
-        .arg("-d", root_path, "path to the tests directory (default: .)").aka("--test-data")
-        .action("-t", [&list_tests] (const char* v) {
-                list_tests.emplace(v);
-        }, "run this test. Default is to run all tests.").aka("--run-tests")
+    args.arg("-d", root_path, "path to the tests directory (default: .)")
+        .aka("--test-data")
+        .action(
+            "-t", [&list_tests](const char* v) { list_tests.emplace(v); },
+            "run this test. Default is to run all tests.")
+        .aka("--run-tests")
         .flag("--no-static", do_not_run_static, "do not run static model tests")
         .flag("--no-yandex", do_not_run_yandex, "do not run Yandex model library tests")
         .flag("--no-compare", do_not_run_compare, "run only performance test, no values comparation");

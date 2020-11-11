@@ -1,42 +1,43 @@
 #include "catboost.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstring>
 #include <cstdlib>
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <string>
 
 #include "../src/json.hpp"
 
 namespace {
-    std::string root_path = ".";
+std::string root_path = ".";
 
-    std::string path_to(const std::string& filename) {
-        return root_path + "/" + filename;
-    }
+std::string path_to(const std::string& filename) { return root_path + "/" + filename; }
 
-}
+} // namespace
 
-#define CHECK(some) \
-    do { \
-        if (!(some)) { \
-            std::cerr << "[" << __FILE__ << ":" << __LINE__ << "]" << "Error: " << #some << " failed.\n"; \
-            std::exit(1); \
-        } else { \
-            std::cout << "[" << __FILE__ << ":" << __LINE__ << "]" << "Info: " << #some << " success\n"; \
-        } \
+#define CHECK(some)                                                \
+    do {                                                           \
+        if (!(some)) {                                             \
+            std::cerr << "[" << __FILE__ << ":" << __LINE__ << "]" \
+                      << "Error: " << #some << " failed.\n";       \
+            std::exit(1);                                          \
+        } else {                                                   \
+            std::cout << "[" << __FILE__ << ":" << __LINE__ << "]" \
+                      << "Info: " << #some << " success\n";        \
+        }                                                          \
     } while (0)
 
-#define CHECK_FEQ(a, b, epsilon) \
-    do { \
-        double test_a = (a); \
-        double test_b = (b); \
-        double test_delta = test_a - test_b; \
-        if (test_delta < 0.0) test_delta = -test_delta; \
-        if (test_delta > epsilon) { \
-            std::cerr << "[" << __FILE__ << ":" << __LINE__ << "]" << "Error: " << #a << "(" << test_a << ") != " #b << "(" << test_b << ")" << std::endl; \
-            std::exit(1); \
-        } \
+#define CHECK_FEQ(a, b, epsilon)                                                                              \
+    do {                                                                                                      \
+        double test_a = (a);                                                                                  \
+        double test_b = (b);                                                                                  \
+        double test_delta = test_a - test_b;                                                                  \
+        if (test_delta < 0.0) test_delta = -test_delta;                                                       \
+        if (test_delta > epsilon) {                                                                           \
+            std::cerr << "[" << __FILE__ << ":" << __LINE__ << "]"                                            \
+                      << "Error: " << #a << "(" << test_a << ") != " #b << "(" << test_b << ")" << std::endl; \
+            std::exit(1);                                                                                     \
+        }                                                                                                     \
     } while (0)
 
 struct Test {
@@ -88,22 +89,22 @@ void test_catboost() {
 }
 
 int main(int argc, char** argv) {
-#define ARG_FLAG(f, var) \
+#define ARG_FLAG(f, var)                   \
     if (!std::strcmp(argv[argindex], f)) { \
-        var = true; \
-        ++argindex; \
-        continue; \
+        var = true;                        \
+        ++argindex;                        \
+        continue;                          \
     }
 
-#define ARG_STR(f, var) \
-    if (!std::strcmp(argv[argindex], f)) { \
-        if (argindex + 1 == argc) { \
+#define ARG_STR(f, var)                                                                  \
+    if (!std::strcmp(argv[argindex], f)) {                                               \
+        if (argindex + 1 == argc) {                                                      \
             std::cerr << "Error: no parameter for argument '" << f << "'." << std::endl; \
-            return 1; \
-        } \
-        var = std::string(argv[++argindex]); \
-        ++argindex; \
-        continue; \
+            return 1;                                                                    \
+        }                                                                                \
+        var = std::string(argv[++argindex]);                                             \
+        ++argindex;                                                                      \
+        continue;                                                                        \
     }
 
     int argindex = 1;
@@ -127,4 +128,3 @@ int main(int argc, char** argv) {
 
     return 0;
 }
-
