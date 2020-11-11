@@ -1,11 +1,12 @@
 #pragma once
 
-#include <iostream>
+#include <sys/time.h>
+
+#include <cstdlib>
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
-#include <cstdlib>
-#include <sys/time.h>
 
 inline double ftime() {
     struct timeval tv;
@@ -68,7 +69,6 @@ struct TestData {
 
         f.close();
     }
-
 };
 
 template <typename Model>
@@ -92,7 +92,7 @@ inline void perf_test(Model& model, const TestData& test_data, int iters = 1) {
         double delta_time = iter_end - iter_begin;
         sum_deltas /= test_data.data.size();
         std::cerr << "END ITERATION: " << (iter + 1) << " (" << delta_time << " seconds)"
-            << " Q = " << sum_deltas << std::endl;
+                  << " Q = " << sum_deltas << std::endl;
         if (iter == 0 || best_time > delta_time) {
             best_time = delta_time;
         }
@@ -101,8 +101,10 @@ inline void perf_test(Model& model, const TestData& test_data, int iters = 1) {
     double end = ftime();
     double sum_time = end - begin;
     std::cerr << iters << " iterations have finished in " << (end - begin) << " seconds." << std::endl;
-    std::cerr << "Best time is " << best_time << " (" << (best_time / test_data.data.size()) << " per prediction, " << (test_data.data.size() / best_time) << " predictions/sec)" << std::endl;
-    std::cerr << "Average time is " << (sum_time / iters) <<  "(" << (sum_time / iters / test_data.data.size()) << " per prediction)" << std::endl;
+    std::cerr << "Best time is " << best_time << " (" << (best_time / test_data.data.size()) << " per prediction, "
+              << (test_data.data.size() / best_time) << " predictions/sec)" << std::endl;
+    std::cerr << "Average time is " << (sum_time / iters) << "(" << (sum_time / iters / test_data.data.size())
+              << " per prediction)" << std::endl;
 }
 
 template <typename Model>
@@ -128,7 +130,7 @@ inline void perf_test_buckets(Model& model, const TestData& test_data, int iters
         double delta_time = iter_end - iter_begin;
         sum_deltas /= test_data.data.size();
         std::cerr << "END ITERATION: " << (iter + 1) << " (" << delta_time << " seconds)"
-            << " Q = " << sum_deltas << std::endl;
+                  << " Q = " << sum_deltas << std::endl;
         if (iter == 0 || best_time > delta_time) {
             best_time = delta_time;
         }
@@ -137,7 +139,8 @@ inline void perf_test_buckets(Model& model, const TestData& test_data, int iters
     double end = ftime();
     double sum_time = end - begin;
     std::cerr << iters << " iterations have finished in " << (end - begin) << " seconds." << std::endl;
-    std::cerr << "Best time is " << best_time << " (" << (best_time / test_data.data.size()) << " per prediction, " << (test_data.data.size() / best_time) << " predictions/sec)" << std::endl;
-    std::cerr << "Average time is " << (sum_time / iters) <<  "(" << (sum_time / iters / test_data.data.size()) << " per prediction)" << std::endl;
+    std::cerr << "Best time is " << best_time << " (" << (best_time / test_data.data.size()) << " per prediction, "
+              << (test_data.data.size() / best_time) << " predictions/sec)" << std::endl;
+    std::cerr << "Average time is " << (sum_time / iters) << "(" << (sum_time / iters / test_data.data.size())
+              << " per prediction)" << std::endl;
 }
-

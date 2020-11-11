@@ -84,7 +84,7 @@ perftxt:
 
 indent:
 	# For indentation I'm using clang-format
-	for file in include/catboost.hpp src/catboost.cpp src/vec4.hpp; do clang-format -style=file -i $$file; done
+	for file in include/catboost.hpp src/catboost.cpp src/vec4.hpp unittest/catboost_test.cpp perftest/dll.hpp perftest/main.cpp perftest/perf_test.hpp; do clang-format -style=file -i $$file; done
 
 clean:
 	rm -rf build_debug
