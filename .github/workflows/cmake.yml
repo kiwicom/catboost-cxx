@@ -16,6 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: jwlawson/actions-setup-cmake@v1.4
 
     - name: Build
       working-directory: ${{runner.workspace}}/build
