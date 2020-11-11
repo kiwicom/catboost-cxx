@@ -5,6 +5,6 @@ TARGET_LINK_LIBRARIES(unittest catboost)
 
 ADD_TEST(
     NAME catboosttest
-    COMMAND unittest -v -d ${CMAKE_CURRENT_SOURCE_DIR}
+    COMMAND unittest -d ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
