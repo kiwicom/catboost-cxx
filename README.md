@@ -1,5 +1,6 @@
 CatBoost applier library
 -------------------------
+![Test status:](https://github.com/kiwicom/catboost-cxx/workflows/CMake/badge.svg)
 
 This library allows to apply Yandex Catboost models without adding huge applier library dependency.
 Models should be saved in JSON format.
