@@ -1,1 +1,1 @@
-ADD_LIBRARY(catboost catboost.cpp)
+ADD_LIBRARY(catboost catboost.cpp cb.cpp)
