@@ -1,4 +1,5 @@
 #include "catboost.hpp"
+#include "cb.h"
 
 #include <cstdlib>
 #include <cstring>
@@ -63,19 +64,43 @@ static bool one_test(const std::string& name) {
         }
     }
 
-    catboost::Model model;
-    model.load(path_to("testdata/" + name + "-model.json"));
-    for (size_t i = 0; i < data.x.size() && i < data.y.size(); ++i) {
-        float p = model.apply(data.x[i]);
-        CHECK_FEQ(p, data.y[i], 0.001);
+    {
+        catboost::Model model;
+        model.load(path_to("testdata/" + name + "-model.json"));
+        for (size_t i = 0; i < data.x.size() && i < data.y.size(); ++i) {
+            float p = model.apply(data.x[i]);
+            CHECK_FEQ(p, data.y[i], 0.001);
+        }
+
+        std::vector<double> y;
+        model.apply(data.x, y);
+
+        CHECK(data.x.size() == y.size());
+        for (size_t i = 0; i < data.x.size() && i < data.y.size(); ++i) {
+            CHECK_FEQ(y[i], data.y[i], 0.001);
+        }
     }
 
-    std::vector<double> y;
-    model.apply(data.x, y);
+    {
+        catboost_model_info_t *model = cb_model_load(path_to("testdata/" + name + "-model.json").c_str());
+        CHECK(model != nullptr);
+        for (size_t i = 0; i < data.x.size() && i < data.y.size(); ++i) {
+            float p = cb_model_apply(model, data.x[i].data(), data.x[i].size());
+            CHECK_FEQ(p, data.y[i], 0.001);
+        }
 
-    CHECK(data.x.size() == y.size());
-    for (size_t i = 0; i < data.x.size() && i < data.y.size(); ++i) {
-        CHECK_FEQ(y[i], data.y[i], 0.001);
+        std::vector<double> y;
+        std::vector<const float*> xx;
+        for (const auto& x : data.x)
+            xx.push_back(x.data());
+        y.resize(xx.size());
+        cb_model_apply_many(model, xx.data(), xx.size(), data.x[0].size(), y.data());
+        cb_model_free(model);
+
+        CHECK(data.x.size() == y.size());
+        for (size_t i = 0; i < data.x.size() && i < data.y.size(); ++i) {
+            CHECK_FEQ(y[i], data.y[i], 0.001);
+        }
     }
 
     return true;
