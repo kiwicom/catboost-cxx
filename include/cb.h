@@ -15,6 +15,12 @@ typedef struct catboost_model_info_st catboost_model_info_t;
 /// Returns loaded model. On error function returns NULL and sets reason string.
 catboost_model_info_t* cb_model_load(const char* filename);
 
+/// Load model from string representation.
+/// @argument data - JSON model data
+/// @argument data_len - size of the data
+/// Returns loaded model. On error function returns NULL and sets reason string.
+catboost_model_info_t* cb_model_load_from_string(const char* data, size_t data_len);
+
 /// Free model memory.
 /// @argument model - loaded model to free.
 void cb_model_free(catboost_model_info_t* model);

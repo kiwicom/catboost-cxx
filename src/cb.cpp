@@ -1,6 +1,7 @@
 #include <cb.h>
 #include <catboost.hpp>
 #include <limits>
+#include <sstream>
 
 // Implementation of the C interface
 
@@ -24,6 +25,17 @@ extern "C" catboost_model_info_t* cb_model_load(const char* filename) {
     CB_BEGIN {
         auto model = std::make_unique<catboost_model_info_t>();
         model->model.load(std::string(filename));
+        return model.release();
+    } CB_END(nullptr)
+}
+
+extern "C" catboost_model_info_t* cb_model_load_from_string(const char* data, size_t data_len) {
+    // TODO: do not copy memory
+    CB_BEGIN {
+        std::string buf{data, data_len};
+        std::istringstream ss{buf};
+        auto model = std::make_unique<catboost_model_info_t>();
+        model->model.load(ss);
         return model.release();
     } CB_END(nullptr)
 }
