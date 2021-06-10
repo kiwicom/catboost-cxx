@@ -47,7 +47,7 @@ build_debug_nosse: CMakeLists.txt
 build_release: CMakeLists.txt
 	rm -rf build_release
 	mkdir build_release
-	(cd build_release; cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_PERF=ON ../)
+	(cd build_release; cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_PERF=ON -DBUILD_SHARED_LIBS=ON ../)
 	[ -f compile_commands.json ] || ln -s build_release/compile_commands.json .
 
 build_release_nosse: CMakeLists.txt
