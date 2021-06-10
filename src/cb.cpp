@@ -57,7 +57,7 @@ const char* cb_model_last_error(void) {
     return cb_last_error.c_str();
 }
 
-void cm_model_last_error_clear(void) {
+void cb_model_last_error_clear(void) {
     cb_last_error = "";
 }
 

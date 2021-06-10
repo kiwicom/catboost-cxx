@@ -49,7 +49,7 @@ size_t cb_model_feature_count(const catboost_model_info_t* model);
 const char* cb_model_last_error(void);
 
 /// Clear error message for this thread.
-void cm_model_last_error_clear(void);
+void cb_model_last_error_clear(void);
 
 #ifdef __cplusplus
 }
